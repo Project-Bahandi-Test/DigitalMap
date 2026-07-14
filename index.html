@@ -78,7 +78,7 @@
 
             -->
             <!-- Hover Preview Card -->
-            <div id="map-preview-card" class="preview-card hidden">
+        <div id="map-preview-card" class="preview-card hidden">
                 <div class="preview-card-content">
                     <span id="preview-tag-text" class="preview-tag">Category</span>
                     <h4 id="preview-title-text">Landmark Name</h4>
@@ -89,18 +89,21 @@
 
         <!-- Info Sidebar -->
         <div id="info-sidebar" class="sidebar collapsed">
-            <button class="exit-btn" onclick="closeSidebar()">✕ EXIT</button>
+             <div class="sidebar-actions">
+                    <button class="exit-btn" onclick="closeSidebar()">✕ EXIT</button>
+                </div>
             <div class="sidebar-content">
+                
                 <div class="sidebar-image-wrapper">
                     <img id="landmark-image" src="" alt="Landmark Preview" onerror="this.style.display='none';">
                     <div class="image-fallback-graphic">🖼️ Image Placeholder</div>
                 </div>
                 <h2 id="landmark-title">Select a Landmark</h2>
                 <p id="landmark-description">Explore Iloilo's rich cultural heritage through this interactive map.</p>
+               
                 <div class="sidebar-actions">
-                    <button class="play-game-btn">PLAY GAME!</button>
+                   <button class="play-game-btn" onclick="playgame()">PLAY GAME</button>
                 </div>
-                <div class="game-placeholder-zone"></div>
             </div>
         </div>
     </div>

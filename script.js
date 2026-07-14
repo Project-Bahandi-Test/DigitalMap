@@ -29,17 +29,10 @@ const sidebarTitle = document.getElementById('landmark-title');
 const sidebarDesc = document.getElementById('landmark-description');
 
 // ==================== 3. REAL-TIME MOUSE TRAILING ENGINE ====================
-mapContainer.addEventListener('mousemove', function(e) {
+document.addEventListener('mousemove', function(e) {
     if (!previewCard.classList.contains('hidden')) {
-        const rect = mapContainer.getBoundingClientRect();
-        
-        // Find coordinate maps relative to the container border edges
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        // Shifts target 15px to the right to stop card from trapping cursor focus
-        previewCard.style.left = (x + 15) + "px";
-        previewCard.style.top = y + "px";
+        previewCard.style.left = `${e.clientX + 15}px`;
+        previewCard.style.top = `${e.clientY + 15}px`;
     }
 });
 
@@ -115,6 +108,7 @@ const pinIcon = L.divIcon({
 L.marker([10.696444, 122.543473],{icon: pinIcon}).addTo(map)
 .on("click",function(){
     selectLandmark("molo-mansion");
+    
 })
 .on("mouseover",function(){
     hoverLandmark("molo-mansion");

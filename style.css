@@ -11,7 +11,7 @@
     --bg-header: #0d232f;     /* Deep Teal brand flavor token from Figma */
     --bg-sidebar: #1a1a1a;    /* Charcoal theme canvas backdrop sheet layer */
     --btn-blue: #0f2c3d;      /* Capsule control tone primary fill */
-    --border-color: #2d2d2d;  /* Low contrast vector split borders */
+    --border-color: #2d2d2d85;  /* Low contrast vector split borders */
 }
 
 body, html {
@@ -183,7 +183,7 @@ body, html {
 /* ==================== FILTER OVERLAY PANEL (LEFT FLOATING) ==================== */
 .filter-control-panel {
     position: absolute;
-    top: 20px;
+    top: 100px;
     left: 20px;
     width: 260px;
     background-color: rgba(26, 26, 26, 0.95);
@@ -191,7 +191,7 @@ body, html {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    z-index: 4;
+    z-index: 3;
     color: #fff;
 }
 
@@ -237,16 +237,21 @@ body, html {
 
 /* ==================== HOVER PREVIEW TARGET BOX ==================== */
 .preview-card {
-    position: absolute;
+    position: fixed;
+    top: 0;                    
+    left: 0;                     
     background-color: #1e1e1e;
     border-left: 4px solid var(--btn-blue);
     padding: 0.6rem 1rem;
     border-radius: 6px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    pointer-events: none; /* Lets mouse read elements through the element box seamlessly */
+    pointer-events: none;        
     z-index: 150;
     max-width: 220px;
     color: #fff;
+    
+
+    will-change: left, top;
 }
 
 .preview-tag {
@@ -305,6 +310,8 @@ body, html {
     font-size: 0.85rem;
     letter-spacing: 0.5px;
     transition: background 0.2s;
+    display: flex;
+    width: 100%;
 }
 
 .exit-btn:hover {
@@ -395,34 +402,46 @@ body, html {
 }
 
 .play-game-btn {
-    font-family: 'Urbanist', sans-serif;
+  font-family: 'Urbanist', sans-serif;
     font-weight: 700;
     width: 100%;
-    padding: 0.8rem;
-    background-color: var(--btn-blue);
-    color: #ffffff;
-    border: none;
-    border-radius: 24px; /* Curved capsule borders */
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(15, 44, 61, 0.4);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.play-game-btn:hover {
-    background-color: #163e54;
-    transform: translateY(-1px);
-}
-
-.game-placeholder-zone {
     border: 2px dashed #333;
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
     color: #555;
     font-size: 0.85rem;
+    background-color: transparent;
 }
+
+.play-game-btn:hover {
+    background: var(--btn-blue);
+    color: #ffffff;
+    border-color: #ffffff;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.viewdetails-btn {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    border: 2px dashed #333;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem;
+    background-color: transparent;
+}
+
+
+.viewdetails-btn:hover {
+   background: var(--btn-blue);
+    color: #ffffff;
+    border-color: #ffffff;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
 
 /* Accessibility state modifier utilities */
 .hidden {

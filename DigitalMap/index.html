@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bahandi - Interactive Map</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Urbanist:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <span class="logo-main">projectbahandi<span class="domain">.com</span></span>
+            <span class="divider">|</span>
+            <span class="subtitle">Molo District Heritage Map</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="active-nav">Interactive Map</a>
+            <a href="#">About</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+        <div class="app-container">
+            <!-- Filter Panel -->
+            <div class="filter-control-panel">
+                <h3>Filter Landmarks</h3>
+                <div class="filter-group">
+                    <label for="region-select">Region:</label>
+                    <select id="region-select" disabled>
+                        <option value="molo">Molo, Iloilo City</option>
+                        <option value="jaro">Jaro, Iloilo City</option>
+                        <option value="city-proper">City Proper</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category-select">Type:</label>
+                    <select id="category-select" disabled>
+                        <option value="all">All Landmarks</option>
+                        <option value="church">Churches / Religious</option>
+                        <option value="mansion">Ancestral Houses</option>
+                        <option value="plaza">Plazas & Parks</option>
+                    </select>
+                </div>
+                <button class="filter-btn-placeholder" type="button" disabled>Apply Filters</button>
+            </div>
+
+        <!-- Map Canvas Area -->
+        <div id="map"></div>
+        <div class="map-container">
+            <div class="placeholder-overlay-text">
+                <h2>Molo District Map Canvas Area</h2>
+                <p>Asset placeholder active • Click on the location markers above</p>
+            </div>
+            <div class="blueprint-grid-placeholder"></div>
+
+            <!-- Interactive Map Pins -->
+             <!--
+            <button class="map-pin pin-mansion"
+                    onclick="selectLandmark('molo-mansion')"
+                    onmouseover="hoverLandmark('molo-mansion')"
+                    onmouseout="leaveLandmark()">📍</button>
+                    
+            <button class="map-pin pin-church"
+                    onclick="selectLandmark('molo-church')"
+                    onmouseover="hoverLandmark('molo-church')"
+                    onmouseout="leaveLandmark()">📍</button>
+                    
+            <button class="map-pin pin-plaza"
+                    onclick="selectLandmark('molo-plaza')"
+                    onmouseover="hoverLandmark('molo-plaza')"
+                    onmouseout="leaveLandmark()">📍</button>
+
+            -->
+            <!-- Hover Preview Card -->
+        <div id="map-preview-card" class="preview-card hidden">
+                <div class="preview-card-content">
+                    <span id="preview-tag-text" class="preview-tag">Category</span>
+                    <h4 id="preview-title-text">Landmark Name</h4>
+                    <p>Click pin to expand details...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Sidebar -->
+        <div id="info-sidebar" class="sidebar collapsed">
+    <!-- 01: Exit Button -->
+    <div class="sidebar-header">
+        <button class="close-btn" onclick="closeSidebar()">✕ EXIT</button>
+    </div>
+
+    <!-- 02: Landmark Hero Image -->
+    <div class="sidebar-image-container">
+        <img id="landmark-image" src="" alt="Landmark Image" />
+    </div>
+
+    <!-- 03: Title & Short Description -->
+    <div class="sidebar-body">
+        <h2 id="landmark-title">Landmark Name</h2>
+        <p id="landmark-description" class="short-description">
+            Short 2-3 line summary of the landmark...
+        </p>
+    </div>
+
+  
+    <div class="sidebar-footer">
+        <span class="footer-label">Explore!</span>
+        <div class="mini-button-row">
+            
+            <div class="mini-btn-wrapper">
+                <button class="mini-btn" onclick="openDetailModal('FD')">FD</button>
+                <div class="btn-flyout">
+                    <strong>Full Details</strong>
+                    <span>Click to view the complete history and details.</span>
+                </div>
+            </div>
+
+            <div class="mini-btn-wrapper">
+                <button class="mini-btn" onclick="openDetailModal('QR')">QR</button>
+                <div class="btn-flyout">
+                    <strong>QR Code</strong>
+                    <span>Scan code for quick location access.</span>
+                </div>
+            </div>
+
+          
+            <div class="mini-btn-wrapper">
+                <button class="mini-btn" onclick="openDetailModal('HS')">HS</button>
+                <div class="btn-flyout">
+                    <strong>Heritage Status</strong>
+                    <span>View historical recognition and status.</span>
+                </div>
+            </div>
+
+         
+            <div class="mini-btn-wrapper">
+                <button class="mini-btn" onclick="openDetailModal('HSC')">HSC</button>
+                <div class="btn-flyout">
+                    <strong>Historical and Cultural Significance</strong>
+                    <span>Explore this landmark's influence on the local culture and history of molo.</span>
+                </div>
+            </div>
+
+            <div class="mini-btn-wrapper">
+                <button class="mini-btn" onclick="openDetailModal('FF')">FF</button>
+                <div class="btn-flyout">
+                    <strong>Fun Facts</strong>
+                    <span>Hear interesting stories and trivia about the landmark.</span>
+                </div>
+            </div>
+
+            <div class="mini-btn-wrapper">
+                <button class="mini-btn" onclick="openDetailModal('PG')">PG</button>
+                <div class="btn-flyout">
+                    <strong>Play game</strong>
+                    <span>Play an interactive game to learn more about the landmark.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /* ==================== GLOBAL RESETS & DEFAULTS ==================== */
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -175,7 +175,7 @@ body, html {
 .pin-plaza { top: 40%; left: 65%; }
 */
 
-.emoji-pin{
+.Location_Pin{
     font-size:32px;
     text-align:center;
 }
@@ -299,6 +299,23 @@ body, html {
     transform: translateX(100%);
 }
 
+.mini-btn {
+    display: flex;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 0;
+}
+
+.mini-btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
 /* 01: Exit Button */
 .sidebar-header {
     display: flex;
@@ -382,8 +399,8 @@ body, html {
 .mini-btn {
     width: 100%;
     padding: 0.6rem 0;
-    background-color: #222;
-    border: 1px solid #444;
+    background-color: #1E293B;
+    border: 1px solid #2563EB ;
     color: #fff;
     font-weight: bold;
     font-size: 0.8rem;
@@ -393,8 +410,14 @@ body, html {
 }
 
 .mini-btn:hover {
-    background-color: #3b82f6;
+    background-color: #3b83f638;
     border-color: #3b82f6;
+}
+
+.mini-btn-wrapper:hover {
+    background-color: #3b83f6;
+    border-color: #3b82f6;
+    color: #fff;
 }
 
 /* Smooth Sliding Hover Flyout Card */

@@ -86,7 +86,7 @@ var bounds = L.latLngBounds(southWest, northEast)
 
 map.setMaxBounds(bounds);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: 'abcd',
     maxZoom: 19
@@ -96,12 +96,13 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 //Interactive Map Pins
 
 //Pin Style
-const pinIcon = L.divIcon({
-    html: "📍",
-    className: "emoji-pin",
+const pinIcon = L.icon({
+    iconUrl: 'assets/Location_Pin.png',
+    className: "Location_Pin",
     iconSize: [30, 30],
     iconAnchor: [15, 30]
 });
+
 
 
 //Mansion

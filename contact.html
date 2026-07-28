@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Project BAHANDI</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .overflow-wrap-anywhere {
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-700 font-serif">
+  <nav class="fixed top-0 left-0 w-full h-[72px] bg-[#14213d] text-white z-50 shadow-md flex items-center px-6 md:px-12">
+    <div class="font-serif text-xl font-bold tracking-wide flex-1 bg-cover bg-center rounded-xl px-4 py-2" style="background-image: url('../imports/molo front.jpg');">Project Bahandi</div>
+
+    <div class="hidden md:flex space-x-6 text-sm font-medium items-center">
+      <a href="index.html" class="hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">Home</a>
+      <a href="about.html" class="hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">About</a>
+      <a href="contact.html" class="hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">Contact</a>
+      <a href="Login.html" class="bg-[#5C87C7] hover:bg-white hover:text-[#14213d] text-white rounded-lg px-4 py-2 transition-all font-semibold">Login</a>
+
+    </div>
+
+    <button id="mobile-toggle" class="md:hidden p-2">☰</button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden fixed top-[72px] left-0 w-full bg-[#14213d] text-white flex flex-col items-center py-6 space-y-4 md:hidden z-40 shadow-lg border-t border-white/20">
+    <a href="index.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">Home</a>
+    <a href="about.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">About</a>
+    <a href="contact.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">Contact</a>
+    <a href="Login.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">Login</a>
+  </div>
+
+  <main class="overflow-hidden pt-[72px]">
+    <!-- ===================================== -->
+    <!-- HERO SECTION                          -->
+    <!-- ===================================== -->
+    <section 
+      class="relative text-white py-32 px-6 bg-cover bg-center"
+      style="background-image: url('../imports/MoloFront.jpg');"
+    >
+      <div class="absolute inset-0 bg-[#14213d]/70"></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto text-center">
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          Share Your <br />
+          <span class="text-[#5C87C7]">STORIES</span>
+        </h1>
+        <p class="mt-8 max-w-4xl mx-auto text-xl leading-9 text-white/80">
+          Have questions, suggestions, or heritage stories to share? Connect with Project Bahandi and help preserve the culture and history of Molo. We would love to hear from you!
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================== -->
+    <!-- CONTACT INFORMATION                   -->
+    <!-- ===================================== -->
+    <section class="py-28 px-6">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Title -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+            Contact Information
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600 font-serif">
+            Whether you have questions, or ideas, your voices help us improve Project BAHANDI and continue sharing the beauty of Molo's Heritage through innovative and transformative means.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-10">
+          
+          <!-- Location Card -->
+          <div class="bg-slate-50 rounded-3xl shadow-lg p-10 text-center border border-slate-100 transition-transform duration-300 hover:-translate-y-2">
+            <div class="w-20 h-20 rounded-full bg-[#DCE4F0] flex items-center justify-center mx-auto mb-8">
+              <!-- MapPin Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#14213d]"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Project Location</h3>
+            <p class="text-lg leading-8 text-slate-600 mb-4">
+              <strong>Iloilo National High School</strong><br />
+              Strengthened Technical-Vocational Education Program<br />
+              Luna St., La Paz, Iloilo City, Iloilo, Philippines 5000
+            </p>
+            <p class="text-sm text-slate-500 italic mt-6">
+              Created as a student-led initiative celebrating the heritage of Molo, Iloilo.
+            </p>
+          </div>
+
+          <!-- Email Card -->
+          <div class="bg-slate-50 rounded-3xl shadow-lg p-10 text-center border border-slate-100 transition-transform duration-300 hover:-translate-y-2">
+            <div class="w-20 h-20 rounded-full bg-[#DCE4F0] flex items-center justify-center mx-auto mb-8">
+              <!-- Mail Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#14213d]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Project Email</h3>
+            <div class="text-lg leading-8 text-slate-600 space-y-4">
+              <div>
+                <strong class="block text-slate-700">School Email:</strong>
+                <a href="mailto:iloilonhs.ph@gmail.com" class="hover:text-[#5C87C7] transition-colors">iloilonhs.ph@gmail.com</a>
+              </div>
+              <div>
+                <strong class="block text-slate-700">Project Developers Email:</strong>
+                <a href="mailto:stvepstudencouncil18@gmail.com" class="hover:text-[#5C87C7] transition-colors overflow-wrap-anywhere">stvepstudencouncil18@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connect Card -->
+          <div class="bg-slate-50 rounded-3xl shadow-lg p-10 text-center border border-slate-100 transition-transform duration-300 hover:-translate-y-2">
+            <div class="w-20 h-20 rounded-full bg-[#DCE4F0] flex items-center justify-center mx-auto mb-8">
+              <!-- Globe Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#14213d]"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Stay Connected!</h3>
+            <div class="text-lg leading-8 text-slate-600 space-y-4">
+              <a href="https://www.facebook.com/Iloilonhs" target="_blank" rel="noreferrer" class="flex items-center justify-center gap-2 hover:text-[#5C87C7] transition-colors">
+                <!-- Facebook Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                Iloilo National High School
+              </a>
+              <a href="https://www.iloilonhs.edu.ph/" target="_blank" rel="noreferrer" class="flex items-center justify-center gap-2 hover:text-[#5C87C7] transition-colors">
+                <!-- Globe Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                iloilonhs.edu.ph
+              </a>
+              <a href="https://www.facebook.com/STVEPStudentCouncil" target="_blank" rel="noreferrer" class="flex items-center justify-center gap-2 hover:text-[#5C87C7] transition-colors text-center">
+                <!-- Facebook Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                INHS - STVEP Learner Government
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================== -->
+    <!-- FOOTER                                -->
+    <!-- ===================================== -->
+    <footer class="bg-white border-t border-slate-200 py-34 px-12">
+      <div class="max-w-12x1 mx-auto">
+        <div class="grid md:grid-cols-3 gap-12">
+          <!-- Brand -->
+          <div class="space-y-6">
+            <img src="../imports/INHS_STVEP_LOGO.png" alt="INHS STVEP Logo" class="mx-auto h-28 w-auto max-w-full" />
+            <h3 class="text-3xl font-bold text-[#14213d]">
+              PROJECT BAHANDI
+            </h3>
+            <p class="mt-6 text-slate-600 leading-8 text-lg">
+              Preserving Molo’s stories, connecting generations, and
+              celebrating the heritage shaped by its people.
+            </p>
+          </div>
+
+          <!-- Navigation -->
+          <div>
+            <h4 class="text-xl font-bold mb-6">Explore</h4>
+            <ul class="space-y-4 text-slate-600 text-lg">
+              <li class="hover:text-[#14213d] transition cursor-pointer"><a href="#">Home</a></li>
+              <li class="hover:text-[#14213d] transition cursor-pointer"><a href="#">About</a></li>
+              <li class="hover:text-[#14213d] transition cursor-pointer"><a href="#">Games</a></li>
+              <li class="hover:text-[#14213d] transition cursor-pointer"><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="text-xl font-bold mb-6">Contact</h4>
+            <div class="space-y-5 text-slate-600 text-lg leading-8">
+              <p>
+                <strong>Email:</strong><br />
+                <a href="mailto:stvepstudentcouncil18@gmail.com" class="hover:text-[#5C87C7]">stvepstudentcouncil18@gmail.com</a>
+              </p>
+              <p>
+                <strong>Location:</strong><br />
+                Luna St., La Paz, Iloilo City, Iloilo, Philippines, 5000
+              </p>
+              <p>
+                <strong>Facebook:</strong><br />
+                <a href="https://www.facebook.com/STVEPStudentCouncil" target="_blank" rel="noreferrer" class="hover:text-[#5C87C7]">INHS - STVEP Local Learner Government</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="mt-16 pt-8 border-t border-slate-200 text-center">
+          <p class="text-slate-500 leading-8 text-lg">
+            © 2026 PROJECT BAHANDI: An Interactive Showcase of Heritage and
+            Identity of Molo, Iloilo City, Philippines.
+            <br />
+            All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

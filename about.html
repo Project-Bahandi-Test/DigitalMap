@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Bahandi</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link rel="stylesheet" href="globals.css" />
+<link rel="stylesheet" href="css/AboutStyle.css" />
+
+</head>
+
+<body class="bg-white text-slate-700 font-serif overflow-x-hidden">
+  <header>
+    <nav class="fixed top-0 left-0 w-full h-[72px] bg-[#14213d] text-white z-50 shadow-md flex items-center px-6 md:px-12">
+      <div class="font-serif text-xl font-bold tracking-wide flex-1 bg-cover bg-center rounded-xl px-4 py-2" style="background-image: url('../imports/molo front.jpg');">
+        Project Bahandi
+      </div>
+
+      <div class="hidden md:flex space-x-6 text-sm font-medium items-center">
+        <a href="index.html" class="hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">Home</a>
+        <a href="about.html" class="hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">About</a>
+        <a href="contact.html" class="hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">Contact</a>
+        <a href="Login.html" class="bg-[#5C87C7] hover:bg-white hover:text-[#14213d] text-white rounded-lg px-4 py-2 transition-all font-semibold">Login</a>
+      </div>
+
+      <button id="mobile-toggle" class="md:hidden p-2">☰</button>
+    </nav>
+  </header>
+
+<div id="mobile-menu" class="hidden fixed top-[72px] left-0 w-full bg-[#14213d] text-white flex flex-col items-center py-6 space-y-4 md:hidden z-40 shadow-lg border-t border-white/20">
+  <a href="index.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">Home</a>
+  <a href="about.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">About</a>
+  <a href="contact.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">Contact</a>
+  <a href="Login.html" class="text-lg font-medium hover:text-[#5C87C7] transition-colors">Login</a>
+</div>
+
+<main class="flex-1 pt-[72px]">
+
+  <!-- ===================================== -->
+  <!-- HERO -->
+  <!-- ===================================== -->
+  <section
+    class="relative text-white py-32 px-6 bg-cover bg-center"
+    style="background-image: url('../imports/AboutUsPagePicture.jpg');"
+  >
+    <div class="absolute inset-0 bg-[#14213d]/70"></div>
+
+    <div class="hero-fade relative z-10 max-w-6xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+        The Story Behind
+        <br />
+        <span class="text-[#5C87C7]">BAHANDI</span>
+      </h1>
+      <p class="mt-8 max-w-4xl mx-auto text-xl leading-9 text-white/80">
+        Discover the history, stories, and cultural identity of Molo, Iloilo
+        City through an interactive digital platform that preserves heritage,
+        highlights community memories, and connects the past with the present.
+      </p>
+      <a
+        href="DigitalMap.html"
+        class="mt-12 inline-flex items-center gap-3 rounded-full bg-white hover:bg-slate-100 px-8 py-4 text-lg font-semibold text-[#14213d] shadow-lg transition-all duration-300 hover:scale-105"
+     ></a>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- ABOUT THE PROJECT -->
+  <!-- ===================================== -->
+  <section class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="fade-up text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+          About the Project
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-slate-600 font-serif">
+          PROJECT BAHANDI is a digital heritage initiative that transforms local history into an engaging learning experience.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <div class="fade-up h-[450px] rounded-3xl shadow-xl bg-slate-100 overflow-hidden relative">
+          <img
+            src="../imports/MoloFront.jpg"
+            alt="Molo"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+
+        <div class="fade-up">
+          <h3 class="text-3xl font-bold mb-8">PROJECT BAHANDI</h3>
+          <p class="text-lg leading-9 text-slate-600">
+            <strong>
+              PROJECT BAHANDI: An Interactive Showcase of Heritage and
+              Identity of Molo, Iloilo City, Philippines
+            </strong>
+            is a digital heritage platform designed to showcase and preserve
+            the cultural identity of Molo, Iloilo City.
+          </p>
+          <p class="mt-8 text-lg leading-9 text-slate-600">
+            It provides an interactive way for learners and users to explore
+            historical landmarks, traditional food, notable personalities,
+            oral traditions, and community stories connected to Molo's
+            heritage.
+          </p>
+          <p class="mt-8 text-lg leading-9 text-slate-600">
+            Through digital mapping and storytelling, the project transforms
+            heritage learning into an engaging experience where users can
+            discover the meanings, values, and memories behind Molo's
+            cultural elements.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- MOLO HISTORY -->
+  <!-- ===================================== -->
+  <section class="bg-slate-50 py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="fade-up text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+          Molo: A District Rich in History and Culture
+        </h2>
+      </div>
+
+      <div class="fade-up">
+        <div class="hover-scale-102 bg-white rounded-3xl shadow-lg p-12">
+          <div class="flex items-center gap-5 mb-8">
+            <i data-lucide="map" class="text-[#14213d]" style="width:42px;height:42px;"></i>
+            <h3 class="text-2xl font-bold">Historic Molo</h3>
+          </div>
+          <p class="text-lg leading-9 text-slate-600">
+            Molo is one of the historic districts of Iloilo City, known for
+            its significant role in the cultural and economic development of
+            the province.
+          </p>
+          <p class="mt-7 text-lg leading-9 text-slate-600">
+            During the Spanish colonial period, Molo became an important
+            trading center where different cultures and traditions blended. Its
+            historical structures, ancestral houses, traditions, and community
+            stories continue to reflect the district's unique identity.
+          </p>
+          <p class="mt-7 text-lg leading-9 text-slate-600">
+            Today, Molo's heritage remains alive through the people who
+            preserve, share, and give meaning to its cultural resources.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- HERITAGE IS CREATED THROUGH PEOPLE -->
+  <!-- ===================================== -->
+  <section class="py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="fade-up text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+          Heritage is Created Through People
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <div class="fade-up">
+          <div class="bg-[#14213d] text-white rounded-3xl p-10 shadow-xl">
+            <i data-lucide="quote" class="mb-6 text-[#5C87C7]" style="width:42px;height:42px;"></i>
+            <p class="text-2xl leading-10 italic">
+              "Heritage is a social and cultural process where people
+              actively create and shape heritage based on the values,
+              meanings, and importance they assign to objects, places, and
+              traditions."
+            </p>
+            <p class="mt-8 text-white/80 font-semibold">
+              — Kurmo Konsa (2013)
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <p class="text-lg leading-9 text-slate-600">
+            Molo's cultural heritage is not only represented by its
+            historical landmarks, ancestral houses, traditional food, and
+            local practices, but also by the people who recognize, preserve,
+            and give meaning to these cultural elements.
+          </p>
+          <p class="mt-8 text-lg leading-9 text-slate-600">
+            Through <strong>PROJECT BAHANDI</strong>, students become active
+            participants in the heritage process by exploring, documenting,
+            and interpreting Molo's cultural resources through a digital
+            map.
+          </p>
+          <p class="mt-8 text-lg leading-9 text-slate-600">
+            The project highlights that heritage is not simply inherited from
+            the past, but is continuously created and sustained by the
+            community through shared memories, experiences, and cultural
+            appreciation.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- EXPLORING HERITAGE THROUGH TECHNOLOGY -->
+  <!-- ===================================== -->
+  <section class="bg-slate-50 py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="fade-up text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+          Exploring Heritage Through Technology
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-slate-600 font-serif">
+          Discover Molo's cultural identity through an interactive digital experience.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <div class="fade-up">
+          <p class="text-lg leading-9 text-slate-600">
+            The interactive digital map allows users to explore different
+            aspects of Molo's cultural heritage in one platform.
+          </p>
+          <p class="mt-7 text-lg leading-9 text-slate-600">
+            Each entry provides historical information, stories, images, and
+            cultural significance that help users understand the connection
+            between Molo's past and present.
+          </p>
+          <h3 class="mt-10 text-2xl font-bold text-slate-700">
+            Through the map, users can discover:
+          </h3>
+          <ul class="mt-6 space-y-4 text-lg text-slate-600">
+            <li class="hover-shift-8 flex items-center gap-4">
+              <span class="w-3 h-3 rounded-full bg-[#14213d]"></span>
+              Historical landmarks
+            </li>
+            <li class="hover-shift-8 flex items-center gap-4">
+              <span class="w-3 h-3 rounded-full bg-[#14213d]"></span>
+              Traditional food
+            </li>
+            <li class="hover-shift-8 flex items-center gap-4">
+              <span class="w-3 h-3 rounded-full bg-[#14213d]"></span>
+              Notable personalities
+            </li>
+            <li class="hover-shift-8 flex items-center gap-4">
+              <span class="w-3 h-3 rounded-full bg-[#14213d]"></span>
+              Oral traditions
+            </li>
+            <li class="hover-shift-8 flex items-center gap-4">
+              <span class="w-3 h-3 rounded-full bg-[#14213d]"></span>
+              Community stories
+            </li>
+          </ul>
+          <p class="mt-10 text-lg leading-9 text-slate-600">
+            The map serves as a digital space where heritage knowledge can be
+            documented, shared, and appreciated by learners and the
+            community.
+          </p>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-scale-103 h-[500px] bg-white rounded-3xl shadow-xl flex items-center justify-center border border-slate-100 overflow-hidden relative">
+            <img
+              src="../imports/Molo_Sideview.jpg"
+              alt="Interactive Digital Map Preview"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- PROJECT GOALS -->
+  <!-- ===================================== -->
+  <section class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="fade-up text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+          Project Goals
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10">
+
+        <div class="fade-up">
+          <div class="hover-scale-103 bg-white rounded-3xl shadow-lg p-10 transition">
+            <div class="w-16 h-16 rounded-full bg-[#DCE4F0] flex items-center justify-center mb-8">
+              <i data-lucide="landmark" class="text-[#14213d]" style="width:32px;height:32px;"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-5">Showcase Cultural Heritage</h3>
+            <p class="text-lg leading-8 text-slate-600">
+              Showcase Molo's cultural heritage through an interactive digital platform highlighting historical landmarks, traditions, food, personalities, oral traditions, and community stories.
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-scale-103 bg-white rounded-3xl shadow-lg p-10 transition">
+            <div class="w-16 h-16 rounded-full bg-[#DCE4F0] flex items-center justify-center mb-8">
+              <i data-lucide="map" class="text-[#14213d]" style="width:32px;height:32px;"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-5">Preserve Cultural Knowledge</h3>
+            <p class="text-lg leading-8 text-slate-600">
+              Document historical sites, traditions, food, personalities, and community stories to preserve cultural knowledge for future generations.
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-scale-103 bg-white rounded-3xl shadow-lg p-10 transition">
+            <div class="w-16 h-16 rounded-full bg-[#DCE4F0] flex items-center justify-center mb-8">
+              <i data-lucide="quote" class="text-[#14213d]" style="width:32px;height:32px;"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-5">Encourage Student Participation</h3>
+            <p class="text-lg leading-8 text-slate-600">
+              Encourage students to participate in cultural exploration and heritage preservation through interactive learning and digital mapping.
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-scale-103 bg-white rounded-3xl shadow-lg p-10 transition">
+            <div class="w-16 h-16 rounded-full bg-[#DCE4F0] flex items-center justify-center mb-8">
+              <i data-lucide="arrow-right" class="text-[#14213d]" style="width:32px;height:32px;"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-5">Promote Heritage Awareness</h3>
+            <p class="text-lg leading-8 text-slate-600">
+              Promote awareness that heritage is continually shaped by the community through shared memories, meanings, and cultural appreciation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- PROJECT CREATORS -->
+  <!-- ===================================== -->
+  <section class="bg-slate-50 py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="fade-up text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.25em] text-slate-700">
+          Project Creators
+        </h2>
+      </div>
+
+      <h3 class="text-center text-3xl font-bold mb-12">PROJECT DEVELOPERS</h3>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="fade-up">
+          <div class="hover-lift-8 bg-white rounded-3xl shadow-lg p-8 text-center">
+            <div class="w-24 h-24 rounded-full mx-auto mb-6 bg-[#DCE4F0] flex items-center justify-center">
+              <span class="text-3xl font-bold text-[#14213d]">K</span>
+            </div>
+            <h4 class="text-xl font-bold">Keion Enzo C. Gendrala</h4>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-lift-8 bg-white rounded-3xl shadow-lg p-8 text-center">
+            <div class="w-24 h-24 rounded-full mx-auto mb-6 bg-[#DCE4F0] flex items-center justify-center">
+              <span class="text-3xl font-bold text-[#14213d]">J</span>
+            </div>
+            <h4 class="text-xl font-bold">John Paul M. Balboa</h4>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-lift-8 bg-white rounded-3xl shadow-lg p-8 text-center">
+            <div class="w-24 h-24 rounded-full mx-auto mb-6 bg-[#DCE4F0] flex items-center justify-center">
+              <span class="text-3xl font-bold text-[#14213d]">C</span>
+            </div>
+            <h4 class="text-xl font-bold">Cybele Faith B. Arroyo</h4>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="hover-lift-8 bg-white rounded-3xl shadow-lg p-8 text-center">
+            <div class="w-24 h-24 rounded-full mx-auto mb-6 bg-[#DCE4F0] flex items-center justify-center">
+              <span class="text-3xl font-bold text-[#14213d]">R</span>
+            </div>
+            <h4 class="text-xl font-bold">Reylen Angela N. Guillano</h4>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+
+        <div class="fade-up">
+          <div class="bg-white rounded-3xl shadow-lg p-8 text-center">
+            <h4 class="text-xl font-bold text-[#14213d] mb-4">Adviser</h4>
+            <p class="text-lg leading-8 text-slate-600">Rio G. Castanares Jr.</p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="bg-white rounded-3xl shadow-lg p-8 text-center">
+            <h4 class="text-xl font-bold text-[#14213d] mb-4">School Principal</h4>
+            <p class="text-lg leading-8 text-slate-600">Delorah Cecilia L. Fantillo</p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="bg-white rounded-3xl shadow-lg p-8 text-center">
+            <h4 class="text-xl font-bold text-[#14213d] mb-4">Institution</h4>
+            <p class="text-lg leading-8 text-slate-600">
+              Iloilo National High School Strengthened Technical-Vocational Education Program
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- CALL TO ACTION -->
+  <!-- ===================================== -->
+  <section class="bg-[#14213d] py-28 px-6 text-white">
+    <div class="fade-up max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl md:text-6xl font-bold leading-tight">
+        Ready to Explore Molo?
+      </h2>
+      <p class="mt-8 text-xl leading-9 text-white/80 max-w-4xl mx-auto">
+        Explore Molo's rich cultural heritage through our interactive digital
+        map featuring historical landmarks, traditions, community stories,
+        and local identity.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================== -->
+  <!-- CONTACT SECTION -->
+  <section id="contact-us" class="pt-24 bg-[#14213d] text-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+        <div>
+          <h2 class="text-2xl font-serif font-bold mb-4 text-[#5C87C7]">
+            PROJECT BAHANDI
+          </h2>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            An Interactive Showcase of Heritage and Identity of Molo, Iloilo City, Philippines.
+            <br /><br />
+            Explore Molo’s rich cultural heritage through an interactive digital map featuring historical landmarks, traditional practices, local stories, and community memories. Discover the places, people, and traditions that shaped Molo’s identity.
+          </p>
+          <a
+            href="digital-map.html"
+            class="inline-block bg-white hover:bg-slate-100 text-[#14213d] font-bold py-3 px-8 rounded-full transition-colors uppercase tracking-wider text-sm"
+          >
+            EXPLORE
+          </a>
+        </div>
+
+        <div class="md:pl-12">
+          <h3 class="text-xl font-serif font-bold mb-6 text-white border-b border-white/20 pb-2 inline-block">
+            Explore
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="digital-map.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">
+                Digital Map
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-serif font-bold mb-6 text-white border-b border-white/20 pb-2 inline-block">
+            Contact
+          </h3>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-start space-x-3">
+              <i data-lucide="mail" class="w-5 h-5 mt-1 text-[#5C87C7]"></i>
+              <span class="text-sm">stvepstudentcouncil18@gmail.com</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i data-lucide="map-pin" class="w-5 h-5 mt-1 text-[#5C87C7]"></i>
+              <span class="text-sm">Luna St., La Paz, Iloilo City, Iloilo, Philippines, 5000</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i data-lucide="facebook" class="w-5 h-5 mt-1 text-[#5C87C7]"></i>
+              <span class="text-sm">INHS - STVEP Local Learner Government</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/20 py-12 flex flex-col items-center text-center">
+        <h4 class="text-xl font-serif italic text-[#5C87C7] mb-8 max-w-2xl">
+          "Preserving Molo’s stories, connecting generations, and celebrating the heritage shaped by its people."
+        </h4>
+      <img
+        src="../imports/INHS_STVEP_LOGO.png"
+        alt="STVEP-INHS Logo"
+        class="w-full h-auto max-h-[500px] object-contain transition-transform duration-700 hover:scale-105"
+      />
+    </div>
+        <div class="flex flex-wrap justify-center gap-8 items-center mb-8 bg-white p-4 rounded-xl">
+          <div class="w-24">
+            <img
+              src="../imports/Iloilo_City.jpg"
+              alt="Iloilo City Logo"
+              class="w-full h-auto object-contain mix-blend-multiply"
+            />
+          </div>
+          <div class="w-24">
+            <img
+              src="../imports/Philippines.jpg"
+              alt="Love The Philippines Logo"
+              class="w-full h-auto object-contain mix-blend-multiply"
+            />
+          </div>
+        </div>
+
+        <p class="text-slate-400 text-xs tracking-wider uppercase max-w-3xl leading-relaxed">
+          © 2026 PROJECT BAHANDI: An Interactive Showcase of Heritage and Identity of Molo, Iloilo City, Philippines.
+          <br />
+          All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Render lucide icons
+    if (window.lucide) lucide.createIcons();
+
+    // Hero: animate in once, on load (matches initial/animate, not scroll-triggered)
+    document.querySelectorAll('.hero-fade').forEach((el) => {
+      requestAnimationFrame(() => el.classList.add('in-view'));
+    });
+
+    // Everything else: reveal once when scrolled into view (matches whileInView + once:true)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>

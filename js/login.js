@@ -1,7 +1,9 @@
 import { 
   signInWithEmailAndPassword, 
-  signInWithPopup 
+  signInWithPopup,
+  GoogleAuthProvider // <-- Import GoogleAuthProvider
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
 import { 
   doc, 
   setDoc, 
@@ -14,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const googleBtn = document.getElementById("btnGoogleSignIn");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
+
+  // Fallback: Initialize Google Provider if window.googleProvider isn't set yet
+  const googleProvider = window.googleProvider || new GoogleAuthProvider();
 
   const showStatus = (text, isSuccess = false) => {
     if (!msg) return;
@@ -39,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         photoURL: user.photoURL || "",
         lastLogin: serverTimestamp(),
       },
-      { merge: true } // Preserves existing fields when logging in again
+      { merge: true }
     );
   }
 
@@ -71,7 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Google OAuth Provider Authentication
   googleBtn?.addEventListener("click", async () => {
     try {
-      const result = await signInWithPopup(window.auth, window.googleProvider);
+      // Use local googleProvider instance safely
+      const result = await signInWithPopup(window.auth, googleProvider);
       await saveUserToDatabase(result.user);
 
       showStatus("Google login successful! Redirecting...", true);

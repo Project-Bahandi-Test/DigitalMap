@@ -7,11 +7,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Urbanist:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Urbanist:wght@300;400;700;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/FdStyle.css">
     <link rel="stylesheet" href="css/FfStyle.css">
+    <link rel="stylesheet" href="css/hscstyle.css">
+    <link rel="stylesheet" href="css/HsStyle.css">
+    <link rel="stylesheet" href="css/PgStyle.css">
+    <link rel="stylesheet" href="css/QrStyle.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
     <style>
@@ -124,11 +128,11 @@
                         </button>
                         <div class="btn-flyout">
                             <strong>Full Details</strong>
-                            <span>Click to view the complete history and details.</span>
+                            <span>Click to view complete history and details.</span>
                         </div>
                     </div>
 
-                    <!-- BUTTON 5: Fun Facts (FF) -->
+                    <!-- BUTTON 2: Fun Facts (FF) -->
                     <div class="mini-btn-wrapper">
                         <button type="button" class="mini-btn" onclick="openFrame('FF')">
                             <img src="assets/SidebarComp/v4-FF.png" alt="Fun Facts" class="mini-btn-icon"> 
@@ -136,6 +140,50 @@
                         <div class="btn-flyout">
                             <strong>Fun Facts</strong>
                             <span>Discover interesting trivia about this landmark.</span>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON 3: Heritage Citation (HSC) -->
+                    <div class="mini-btn-wrapper">
+                        <button type="button" class="mini-btn" onclick="openFrame('HSC')">
+                            <img src="assets/SidebarComp/v4-HSC.png" alt="Heritage Citation" class="mini-btn-icon"> 
+                        </button>
+                        <div class="btn-flyout">
+                            <strong>Heritage Citation</strong>
+                            <span>View architectural significance and legal citations.</span>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON 4: Heritage Status (HS) -->
+                    <div class="mini-btn-wrapper">
+                        <button type="button" class="mini-btn" onclick="openFrame('HS')">
+                            <img src="assets/SidebarComp/v4-HS.png" alt="Heritage Status" class="mini-btn-icon"> 
+                        </button>
+                        <div class="btn-flyout">
+                            <strong>Heritage Status</strong>
+                            <span>Inspect verified seal and official designation fields.</span>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON 5: Play Game (PG) -->
+                    <div class="mini-btn-wrapper">
+                        <button type="button" class="mini-btn" onclick="openFrame('PG')">
+                            <img src="assets/SidebarComp/v4-PG.png" alt="Play Game" class="mini-btn-icon"> 
+                        </button>
+                        <div class="btn-flyout">
+                            <strong>Play Game</strong>
+                            <span>Explore 3D models and interactive landmark games.</span>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON 6: QR Code (QR) -->
+                    <div class="mini-btn-wrapper">
+                        <button type="button" class="mini-btn" onclick="openFrame('QR')">
+                            <img src="assets/SidebarComp/v4-QR.png" alt="QR Code" class="mini-btn-icon"> 
+                        </button>
+                        <div class="btn-flyout">
+                            <strong>QR Code</strong>
+                            <span>View and scan site QR code for quick access.</span>
                         </div>
                     </div>
 
@@ -193,11 +241,9 @@
         <!-- Fun Facts (FF) Popover Card Stack Modal -->
         <div id="ff-popover-wrapper" class="ff-popover-wrapper">
             <div class="ff-deck-stack">
-                <!-- Ghosted Background Cards for Stack Depth -->
                 <div class="ff-card-bg layer-2"></div>
                 <div class="ff-card-bg layer-1"></div>
 
-                <!-- Interactive Main Front Card -->
                 <div class="ff-card">
                     <div class="ff-header">
                         <div class="ff-icon-circle">
@@ -255,6 +301,271 @@
             </div>
         </div>
 
+        <!-- Heritage Structure Citation (HSC) Wide Sidebar Panel -->
+        <div id="hsc-panel" class="hsc-panel">
+            <div class="hsc-panel-header">
+                <div class="hsc-breadcrumb">
+                    HERITAGE / ARCHITECTURE / <b id="hsc-bread-tag">CITATION</b>
+                </div>
+                <button type="button" class="hsc-close-btn" onclick="closeHSCModal()" aria-label="Close sidebar">✕</button>
+            </div>
+
+            <div class="hsc-panel-content">
+                <div class="hsc-hero-banner">
+                    <img id="hsc-hero-img" src="assets/SidebarComp/v4-FD.png" alt="Heritage Landmark">
+                    <div class="hsc-hero-overlay">
+                        <span class="hsc-badge" id="hsc-hero-badge">NATIONAL HERITAGE HOUSE</span>
+                        <h3 id="hsc-hero-title">Molo Heritage Site</h3>
+                        <p id="hsc-hero-sub">DISTRICT OF MOLO · ILOILO CITY</p>
+                    </div>
+                </div>
+
+                <h2 class="hsc-editorial-title" id="hsc-modal-title">
+                    Architectural <em>Statement</em>
+                </h2>
+
+                <div class="hsc-pill-tabs">
+                    <button type="button" class="hsc-pill-btn active" onclick="switchHSCTab(this, 'statement')">Statement</button>
+                    <button type="button" class="hsc-pill-btn" onclick="switchHSCTab(this, 'significance')">Significance</button>
+                    <button type="button" class="hsc-pill-btn" onclick="switchHSCTab(this, 'citation')">Citation</button>
+                </div>
+
+                <div class="hsc-body-box">
+                    <p class="hsc-dropcap-para" id="hsc-main-paragraph">
+                        Select a landmark from the interactive map to inspect its full heritage citation, architectural significance, and official declaration references.
+                    </p>
+                    <p class="hsc-placeholder-box" id="hsc-sec-paragraph">
+                        Additional preservation metadata and detailed citation records will render here when a site is actively loaded.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hsc-panel-footer">
+                <div class="hsc-chips-group">
+                    <div class="hsc-chip">DESIGNATION: <b id="hsc-chip-designation">NHCP MARKER</b></div>
+                    <div class="hsc-chip">PERIOD: <b id="hsc-chip-era">19TH CENTURY</b></div>
+                </div>
+                <a href="#" class="hsc-cite-link" id="hsc-cite-link" onclick="alert('Opening official citation record...')">
+                    VIEW ARCHIVE →
+                </a>
+            </div>
+        </div>
+
+        <!-- Heritage Status (HS) Verified Seal Certificate Modal -->
+        <div id="hs-overlay" class="hs-overlay">
+            <div class="hs-certificate-card">
+                <div class="hs-inner-border">
+                    <button type="button" class="hs-close-btn" onclick="closeHSModal()" aria-label="Close status modal">✕</button>
+
+                    <div class="hs-cert-header">
+                        <div class="hs-cert-header-left">
+                            <span>BAHANDI</span>
+                            <span>·</span>
+                            <span>HERITAGE REGISTRY</span>
+                        </div>
+                        <div class="hs-cert-header-right">
+                            ENTRY · <span id="hs-entry-code">BHD-ML-0001</span>
+                        </div>
+                    </div>
+
+                    <div class="hs-cert-body">
+                        <div class="hs-seal-wrapper">
+                            <div class="hs-seal-ring"></div>
+                            <div class="hs-seal-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <polyline points="9 12 11 14 15 10"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="hs-details-wrapper">
+                            <div class="hs-status-subtitle" id="hs-category-label">CERTIFIED · HERITAGE LANDMARK</div>
+                            <h3 class="hs-landmark-title" id="hs-landmark-title">Molo <em>Mansion</em></h3>
+                            <p class="hs-summary-text" id="hs-summary-text">
+                                Official designation verified under local heritage registry protection and historic conservation guidelines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="hs-fields-grid">
+                        <div class="hs-field-box">
+                            <div class="hs-field-label">REGISTRY</div>
+                            <div class="hs-field-value" id="hs-val-registry">NHCP Registered</div>
+                        </div>
+                        <div class="hs-field-box">
+                            <div class="hs-field-label">MARKER YR.</div>
+                            <div class="hs-field-value" id="hs-val-markeryr">[ Year ]</div>
+                        </div>
+                        <div class="hs-field-box">
+                            <div class="hs-field-label">ORDINANCE</div>
+                            <div class="hs-field-value" id="hs-val-ordinance">No. [—]</div>
+                        </div>
+                    </div>
+
+                    <div class="hs-cert-footer">
+                        <div class="hs-active-badge">
+                            <span class="hs-status-dot"></span>
+                            <span>VERIFIED & ACTIVE</span>
+                        </div>
+                        <a href="#" class="hs-source-link" onclick="alert('Opening registry source entry...')">
+                            VIEW SOURCE →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Play Game (PG) Cinematic Game Launch Modal -->
+        <div id="pg-overlay" class="pg-overlay">
+            <div class="pg-modal-card">
+                <button type="button" class="pg-close-btn" onclick="closePGModal()" aria-label="Close game modal">✕</button>
+
+                <div class="pg-halo-wrapper">
+                    <div class="pg-halo-ring"></div>
+                    <div class="pg-icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="6" width="20" height="12" rx="4"/>
+                            <path d="M6 12h4m-2-2v4"/>
+                            <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                            <circle cx="18" cy="13" r="1" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="pg-badge">BAHANDI EXPERIENCE · MODULE 06</div>
+                <h2 class="pg-title" id="pg-landmark-title">Play the <em>Heritage</em></h2>
+                <p class="pg-sub-description">
+                    Interactive modes allow visitors to explore 3D architectural renders or test their knowledge on Molo's historical sites.
+                </p>
+
+                <div class="pg-cards-grid">
+                    <div class="pg-mode-card selected" id="pg-card-3d" onclick="selectPGMode('3d')">
+                        <div class="pg-card-top">
+                            <span class="pg-mode-label">MODE 01</span>
+                            <div class="pg-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="pg-card-title">3D Model <em>View</em></h3>
+                            <p class="pg-card-desc">Inspect complete 3D architectural renders and spatial structural scans in real-time.</p>
+                        </div>
+
+                        <div>
+                            <div class="pg-progress-meta">
+                                <span>MODEL LOAD</span>
+                                <span id="pg-prog-3d-val">100%</span>
+                            </div>
+                            <div class="pg-progress-bar-bg">
+                                <div class="pg-progress-fill" id="pg-fill-3d" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pg-mode-card" id="pg-card-game" onclick="selectPGMode('game')">
+                        <div class="pg-card-top">
+                            <span class="pg-mode-label">MODE 02</span>
+                            <div class="pg-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="pg-card-title">Interactive <em>Game</em></h3>
+                            <p class="pg-card-desc">Take guided interactive challenges and mini-games based on this landmark.</p>
+                        </div>
+
+                        <div>
+                            <div class="pg-progress-meta">
+                                <span>PROGRESS</span>
+                                <span id="pg-prog-game-val">0%</span>
+                            </div>
+                            <div class="pg-progress-bar-bg">
+                                <div class="pg-progress-fill" id="pg-fill-game" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pg-footer-bar">
+                    <div class="pg-stats-row">
+                        <div>XP: <strong id="pg-stat-xp">240 XP</strong></div>
+                        <div>RANK: <strong id="pg-stat-rank">EXPLORER</strong></div>
+                    </div>
+                    <button type="button" class="pg-launch-btn" onclick="launchPGExperience()">
+                        START EXPERIENCE &gt;
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- QR Code (QR) Sidebar Panel -->
+        <div id="qr-panel" class="qr-panel">
+            <div class="qr-header">
+                <div class="qr-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                </div>
+                <button type="button" class="qr-back-btn" onclick="closeQRPanel()">← BACK TO OVERVIEW</button>
+            </div>
+
+            <div class="qr-meta-ref" id="qr-ref-code">REF · BHD-ML-0001 · QR ACCESS</div>
+            <h2 class="qr-title" id="qr-landmark-title">Molo Mansion <em>QR Code</em></h2>
+
+            <!-- QR Card Image Display -->
+            <div class="qr-card-display">
+                <div class="qr-image-wrapper">
+                    <img id="qr-code-img" src="" alt="Landmark QR Code">
+                </div>
+                <div class="qr-scan-hint"> SCAN TO INSTANTLY ACCESS ON MOBILE</div>
+            </div>
+
+            <!-- Spec Grid -->
+            <div class="qr-spec-box">
+                <div class="qr-spec-item">
+                    <span class="qr-spec-key">SITE ID</span>
+                    <span class="qr-spec-val" id="qr-val-id">BHD-ML-0001</span>
+                </div>
+                <div class="qr-spec-item">
+                    <span class="qr-spec-key">DISTRICT</span>
+                    <span class="qr-spec-val" id="qr-val-district">Molo, Iloilo City</span>
+                </div>
+                <div class="qr-spec-item">
+                    <span class="qr-spec-key">FORMAT</span>
+                    <span class="qr-spec-val" id="qr-val-format">PNG / 1024px</span>
+                </div>
+                <div class="qr-spec-item">
+                    <span class="qr-spec-key">STATUS</span>
+                    <span class="qr-spec-val" id="qr-val-status">ACTIVE & VERIFIED</span>
+                </div>
+            </div>
+
+            <!-- Actions Footer -->
+            <div class="qr-footer">
+                <button type="button" class="qr-action-btn" onclick="downloadQRCode()">
+                    DOWNLOAD QR CODE ↓
+                </button>
+                <button type="button" class="qr-share-btn" onclick="shareQRLink()">
+                    COPY ACCESS LINK 🔗
+                </button>
+            </div>
+        </div>
+
+    </div>
+
     <!-- Map Libraries & Firebase SDKs -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
@@ -266,21 +577,27 @@
     <script src="js/sites-data.js"></script>
     <script src="js/MapHandler.js"></script>
     <script src="js/ff-handler.js"></script>
+    <script src="js/hsc-handler.js"></script>
+    <script src="js/hs-handler.js"></script>
+    <script src="js/pg-handler.js"></script>
+    <script src="js/qr-handler.js"></script>
 
-    <!-- Inline Control Router for FD and FF Panels -->
+    <!-- Master Control Router for FD, FF, HSC, HS, PG, and QR Panels -->
     <script>
     function openFrame(frameType) {
         const sidebar = document.getElementById('info-sidebar');
         const blueprintPanel = document.getElementById('blueprint-panel');
     
-        if (frameType === 'FD') {
-            if (typeof window.closeFFPopover === 'function') {
-                window.closeFFPopover();
-            }
+        // Close all active sub-panels first to avoid overlap
+        if (blueprintPanel) blueprintPanel.classList.remove('active');
+        if (typeof window.closeFFPopover === 'function') window.closeFFPopover();
+        if (typeof window.closeHSCModal === 'function') window.closeHSCModal();
+        if (typeof window.closeHSModal === 'function') window.closeHSModal();
+        if (typeof window.closePGModal === 'function') window.closePGModal();
+        if (typeof window.closeQRPanel === 'function') window.closeQRPanel();
 
-            if (typeof window.syncBlueprintPanel === 'function') {
-                window.syncBlueprintPanel();
-            }
+        if (frameType === 'FD') {
+            if (typeof window.syncBlueprintPanel === 'function') window.syncBlueprintPanel();
             if (sidebar) sidebar.classList.add('collapsed');
 
             if (blueprintPanel) {
@@ -291,12 +608,25 @@
                 }
             }
         } else if (frameType === 'FF') {
-            if (blueprintPanel) blueprintPanel.classList.remove('active');
-            
             if (sidebar) sidebar.classList.remove('collapsed'); 
-
             if (typeof window.positionAndShowFFPopover === 'function') {
                 window.positionAndShowFFPopover();
+            }
+        } else if (frameType === 'HSC') {
+            if (typeof window.openHSCModal === 'function') {
+                window.openHSCModal();
+            }
+        } else if (frameType === 'HS') {
+            if (typeof window.openHSModal === 'function') {
+                window.openHSModal();
+            }
+        } else if (frameType === 'PG') {
+            if (typeof window.openPGModal === 'function') {
+                window.openPGModal();
+            }
+        } else if (frameType === 'QR') {
+            if (typeof window.openQRPanel === 'function') {
+                window.openQRPanel();
             }
         }
     }
@@ -312,9 +642,11 @@
     function closeSidebar() {
         const sidebar = document.getElementById('info-sidebar');
         if (sidebar) sidebar.classList.add('collapsed');
-        if (typeof window.closeFFPopover === 'function') {
-            window.closeFFPopover();
-        }
+        if (typeof window.closeFFPopover === 'function') window.closeFFPopover();
+        if (typeof window.closeHSCModal === 'function') window.closeHSCModal();
+        if (typeof window.closeHSModal === 'function') window.closeHSModal();
+        if (typeof window.closePGModal === 'function') window.closePGModal();
+        if (typeof window.closeQRPanel === 'function') window.closeQRPanel();
     }
 
     function switchBpTab(btn, tabName) {

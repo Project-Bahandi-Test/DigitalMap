@@ -1,14 +1,34 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { 
+  getAuth, 
   signInWithEmailAndPassword, 
-  signInWithPopup,
-  GoogleAuthProvider // <-- Import GoogleAuthProvider
+  signInWithPopup, 
+  GoogleAuthProvider 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
 import { 
+  getFirestore, 
   doc, 
   setDoc, 
   serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+// Your Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDcAjMKFAnNBiFfIhekOPtRadiCb0Ly8Ng",
+  authDomain: "projectbahandi-7149a.firebaseapp.com",
+  databaseURL: "https://projectbahandi-7149a-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "projectbahandi-7149a",
+  storageBucket: "projectbahandi-7149a.firebasestorage.app",
+  messagingSenderId: "1017170558784",
+  appId: "1:1017170558784:web:ca1c6942f68c2fec9304a5",
+  measurementId: "G-FS77PDWKSK"
+};
+
+// Initialize Firebase Services locally within this module
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
 
 document.addEventListener("DOMContentLoaded", () => {
   const msg = document.getElementById("loginMessage");
@@ -17,9 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
 
-  // Fallback: Initialize Google Provider if window.googleProvider isn't set yet
-  const googleProvider = window.googleProvider || new GoogleAuthProvider();
-
   const showStatus = (text, isSuccess = false) => {
     if (!msg) return;
     msg.classList.remove("warning", "success", "hidden");
@@ -27,29 +44,29 @@ document.addEventListener("DOMContentLoaded", () => {
     msg.textContent = text;
   };
 
-  // Helper function to create or update user profile record in Firestore
+  // Helper function to save user record to Firestore
   async function saveUserToDatabase(user) {
-    if (!window.db) {
-      console.error("Firestore instance (window.db) is not initialized.");
-      return;
+    try {
+      const userRef = doc(db, "users", user.uid);
+      await setDoc(
+        userRef,
+        {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName || "",
+          photoURL: user.photoURL || "",
+          lastLogin: serverTimestamp(),
+        },
+        { merge: true }
+      );
+    } catch (err) {
+      console.error("Firestore Save Error:", err);
     }
-
-    const userRef = doc(window.db, "users", user.uid);
-    await setDoc(
-      userRef,
-      {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName || "",
-        photoURL: user.photoURL || "",
-        lastLogin: serverTimestamp(),
-      },
-      { merge: true }
-    );
   }
 
   // 1. Email/Password Authentication
-  const handleLocalSignIn = async () => {
+  const handleLocalSignIn = async (e) => {
+    if (e) e.preventDefault();
     const email = emailInput?.value.trim();
     const password = passwordInput?.value.trim();
 
@@ -59,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const userCredential = await signInWithEmailAndPassword(window.auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       await saveUserToDatabase(userCredential.user);
 
       showStatus("Log in successful! Redirecting...", true);
@@ -73,11 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   localBtn?.addEventListener("click", handleLocalSignIn);
 
-  // 2. Google OAuth Provider Authentication
+  // 2. Google Sign-In Authentication
   googleBtn?.addEventListener("click", async () => {
     try {
-      // Use local googleProvider instance safely
-      const result = await signInWithPopup(window.auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
       await saveUserToDatabase(result.user);
 
       showStatus("Google login successful! Redirecting...", true);

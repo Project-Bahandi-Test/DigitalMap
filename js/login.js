@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
 
-        window.location.href = "../User/user-home.html";
+        window.location.href = "DigitalMap.html";
 
       }, 1000);
 

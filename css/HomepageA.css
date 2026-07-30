@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ==========================================================================
 HOMEPAGE ANIMATION 
    ========================================================================== */
@@ -121,4 +122,129 @@ HOMEPAGE ANIMATION
 
 .partner-logo:hover {
   transform: scale(1.08);
+=======
+/* ==========================================================================
+HOMEPAGE ANIMATION 
+   ========================================================================== */
+
+
+/* Fade In Smoothly */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade Up with Elevation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Hero Title Zoom/Focus */
+@keyframes heroScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Soft Pulse for Call-to-Action Buttons */
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 20px 25px -5px rgba(92, 135, 199, 0.3), 0 8px 10px -6px rgba(92, 135, 199, 0.2);
+  }
+}
+
+/* Linear Shimmer/Glow Line for Divider */
+@keyframes pulseLine {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scaleX(0.95);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. REUSABLE ANIMATION UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-hero {
+  animation: heroScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger Delays for Smooth Sequencing */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+
+
+/* --------------------------------------------------------------------------
+   3. COMPONENT-SPECIFIC INTERACTION ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Hero Explore CTA Button Glow */
+.cta-btn-animate {
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-btn-animate:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 24px -6px rgba(255, 255, 255, 0.25);
+}
+
+/* Video Frame Hover Lift */
+.video-frame-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.video-frame-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -10px rgba(20, 33, 61, 0.25);
+}
+
+/* Animated Divider Line */
+.animated-divider {
+  animation: pulseLine 4s ease-in-out infinite;
+}
+
+/* Partner Logo Smooth Hover */
+.partner-logo {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.08);
+>>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042
 }

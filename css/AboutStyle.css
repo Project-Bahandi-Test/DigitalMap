@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 .hero h1 {
   font-size: clamp(2rem, 4.5vw, 3.2rem);
@@ -115,4 +116,123 @@ body {
   }
 }
 
+=======
+body {
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+}
+
+.hero p {
+  max-width: 880px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #2b3552;
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: #14213d;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #14213d;
+  border-color: #14213d;
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.section h2 {
+  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.section p {
+  margin-bottom: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2c3654;
+}
+
+.section-muted {
+  background: #eef2fb;
+}
+
+.video-placeholder {
+  width: 100%;
+  min-height: 220px;
+  border: 2px dashed #8da0cf;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  margin: 10px 0 24px;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: #50618f;
+  background: #f8faff;
+}
+
+.site-footer {
+  padding: 54px 0;
+  background: #14213d;
+  color: #ffffff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr;
+  gap: 32px;
+}
+
+.site-footer h3 {
+  font-size: 1rem;
+  margin-bottom: 14px;
+  letter-spacing: 0.06em;
+}
+
+.site-footer p,
+.site-footer li,
+.site-footer a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #dce4ff;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.site-footer ul {
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 60px;
+  }
+}
+
+>>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@500;700;800&display=swap");
 
 :root {
@@ -287,3 +288,486 @@ a {
     grid-template-columns: 1fr;
   }
 }
+=======
+/* ==================== GLOBAL RESETS & DEFAULTS ==================== */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300; /* Sets Montserrat Light as project baseline */
+}
+
+:root {
+    --bg-header: #0d232f;     /* Deep Teal brand flavor token from Figma */
+    --bg-sidebar: #1a1a1a;    /* Charcoal theme canvas backdrop sheet layer */
+    --btn-blue: #0f2c3d;      /* Capsule control tone primary fill */
+    --border-color: #2d2d2d85;  /* Low contrast vector split borders */
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;         /* Pin map workspace viewport strictly to viewport */
+    background-color: #0b151a;
+}
+
+/* ==================== TYPOGRAPHY & HEADER CONFIGS ==================== */
+.main-header {
+    height: 60px;
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-main {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900; /* Urbanist Black */
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+}
+
+.logo-main .domain {
+    font-weight: 300;
+    opacity: 0.6;
+}
+
+.divider {
+    opacity: 0.3;
+    font-size: 1.2rem;
+}
+
+.subtitle {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400; /* Clean balancing text display block */
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+.nav-links a {
+    z-index: 100;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700; /* Urbanist Bold structural nav blocks */
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, 
+.nav-links a.active-nav {
+    color: #ffffff;
+}
+
+/* ==================== CANVAS WORKSPACE CONTROL INTERFACE ==================== */
+.app-container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px); /* Subtract Header baseline to block content overflow */
+    position: relative;
+}
+
+.map-container {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: auto; /* Allows scrolling across oversized base graphics */
+}
+
+#map{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+}
+
+/* TEMPORARY SYSTEM BLUEPRINT BACKGROUND MAP GRID */
+
+
+.placeholder-overlay-text {
+    color: #4b5e68;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 50;
+    text-align: center;
+}
+
+.placeholder-overlay-text h2 {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-overlay-text p {
+    font-size: 0.85rem;
+}
+
+/* ==================== MAP ELEMENT INDICES (PINS) ==================== */
+.map-pin {
+    position: absolute;
+    background: transparent;
+    border: none;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transform: translate(-50%, -100%); /* Pivot anchors perfectly to map points */
+    transition: transform 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.map-pin:hover {
+    transform: translate(-50%, -100%) scale(1.25);
+}
+
+/* Default placeholder mapping pin coordinates */
+/*
+.pin-mansion { top: 45%; left: 35%; }
+.pin-church { top: 55%; left: 50%; }
+.pin-plaza { top: 40%; left: 65%; }
+*/
+
+.Location_Pin{
+    font-size:32px;
+    text-align:center;
+}
+
+/* ==================== FILTER OVERLAY PANEL (LEFT FLOATING) ==================== */
+.filter-control-panel {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    width: 260px;
+    background-color: rgba(26, 26, 26, 0.95);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    color: #fff;
+}
+
+.filter-control-panel h3 {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.filter-group {
+    margin-bottom: 0.75rem;
+}
+
+.filter-group label {
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #aaa;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 0.4rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.filter-btn-placeholder {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #333;
+    color: #777;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: not-allowed;
+}
+
+/* ==================== HOVER PREVIEW TARGET BOX ==================== */
+.preview-card {
+    position: fixed;
+    top: 0;                    
+    left: 0;                     
+    background-color: #1e1e1e;
+    border-left: 4px solid var(--btn-blue);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    pointer-events: none;        
+    z-index: 150;
+    max-width: 220px;
+    color: #fff;
+    
+
+    will-change: left, top;
+}
+
+.preview-tag {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    background-color: #333;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    color: #94a3b8;
+}
+
+.preview-card h4 {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.preview-card p {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+/* ==================== SIDEBAR PANELS ==================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 360px;
+    height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.sidebar.collapsed {
+    transform: translateX(100%);
+}
+
+.mini-btn {
+    display: flex;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 0;
+}
+
+.mini-btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 01: Exit Button */
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.75rem;
+}
+
+.close-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.close-btn:hover {
+    background: #ff4d4d;
+    border-color: #ff4d4d;
+}
+
+/* 02: Image Hero Container */
+.sidebar-image-container {
+    width: 100%;
+    height: 200px;
+    background-color: #222;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.sidebar-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 03: Description Body */
+.sidebar-body h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #3b82f6;
+}
+
+.short-description {
+    font-size: 0.85rem;
+    color: #bbb;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+/* 04: Mini Buttons & Flyout Cards */
+.sidebar-footer {
+    margin-top: auto;
+    border-top: 1px stroke #333;
+    padding-top: 1rem;
+}
+
+.footer-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.mini-button-row {
+    display: flex;
+    gap: 0.4rem;
+    position: relative; /* Context for flyouts */
+}
+
+.mini-btn-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.mini-btn {
+    width: 100%;
+    padding: 0.6rem 0;
+    background-color: rgba(59, 130, 246, 0.06); 
+    border: 1px solid rgba(59, 130, 246, 0.25);  
+    color: #3B82F6;                              
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mini-btn img {
+    max-width: 20px;
+    max-height: 20px;
+    object-fit: contain;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease;
+}
+
+.mini-btn:hover {
+    background-color: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2); 
+}
+
+.mini-btn:hover img {
+    transform: scale(1.08); 
+    filter: brightness(1.15); 
+}
+
+.mini-btn.active,
+.mini-btn:active {
+    background-color: #2563EB;
+    border-color: #1D4ED8;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35),
+                0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.mini-btn.active img,
+.mini-btn:active img {
+    transform: scale(1);
+    filter: brightness(2) contrast(2); /* Brightens icon so it pops on dark blue */
+}
+
+/* Smooth Sliding Hover Flyout Card */
+.btn-flyout {
+    position: absolute;
+    bottom: 120%; /* Sits right above the button row */
+    left: auto;
+    right: 0;
+    width: 220px;
+    background-color: #1e1e1e;
+    border-left: 4px solid #3b82f6;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    pointer-events: none;
+    
+    /* Animation state when hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+}
+
+.btn-flyout strong {
+    display: block;
+    font-size: 0.85rem;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.btn-flyout span {
+    display: block;
+    font-size: 0.72rem;
+    color: #aaa;
+    line-height: 1.2;
+}
+
+/* Hover Effect: Show & Slide Flyout Up */
+.mini-btn-wrapper:hover .btn-flyout {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* ==================== ACTIONS & DESIGN SEPARATION HOOKS ==================== */
+
+
+
+/* Accessibility state modifier utilities */
+.hidden {
+    display: none !important;
+}
+>>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042

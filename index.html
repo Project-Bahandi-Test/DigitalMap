@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -233,4 +234,328 @@
   </section>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Project BAHANDI</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="stylesheet" href="css/HomepageA.css" />
+
+  <style>
+    .video-frame-hover {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+
+    .video-frame-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(20, 33, 61, 0.25);
+    }
+
+    .nav-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      flex-shrink: 0;
+      padding: 4px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(220,230,245,0.9));
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-icon svg {
+      width: 100%;
+      height: 100%;
+      color: #14213d;
+    }
+  </style>
+  
+</head>
+<body class="bg-white font-serif text-slate-700">
+
+  <nav class="fixed top-0 left-0 w-full h-[72px] bg-[#14213d] text-white z-50 shadow-md flex items-center px-6 md:px-12">
+    <div class="relative flex-1 overflow-hidden rounded-xl px-4 py-2">
+      <div class="absolute inset-0 bg-[#14213d]/60"></div>
+      <span class="relative z-10 block font-serif text-xl font-bold tracking-wide text-white">Project Bahandi</span>
+    </div>
+
+    <div class="hidden md:flex space-x-6 text-sm font-medium items-center">
+      <a href="index.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+        </span>
+        <span>Home</span>
+      </a>
+      <a href="about.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </span>
+        <span>About</span>
+      </a>
+      <a href="contact.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </span>
+        <span>Contact</span>
+      </a>
+      <a href="Login.html" class="video-frame-hover bg-[#5C87C7] hover:bg-white hover:text-[#14213d] text-white rounded-lg px-4 py-2 transition-all font-semibold">Login</a>
+    </div>
+
+    <button id="mobile-toggle" class="md:hidden p-2" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden fixed top-[72px] left-0 w-full bg-[#14213d] text-white flex flex-col items-center py-6 space-y-4 md:hidden z-40 shadow-lg border-t border-white/20">
+    <a href="index.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 text-lg font-medium hover:text-[#5C87C7] transition-colors">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <path d="M9 22V12h6v10"></path>
+        </svg>
+      </span>
+      <span>Home</span>
+    </a>
+    <a href="about.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 text-lg font-medium hover:text-[#5C87C7] transition-colors">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </span>
+      <span>About</span>
+    </a>
+    <a href="contact.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 text-lg font-medium hover:text-[#5C87C7] transition-colors">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </span>
+      <span>Contact</span>
+    </a>
+    <a href="Login.html" class="video-frame-hover text-lg font-medium hover:text-[#5C87C7] transition-colors">Login</a>
+  </div>
+
+  <main class="flex-1 pt-[72px]">
+    <!-- ===================================== -->
+    <!-- HERO SECTION                          -->
+    <!-- ===================================== -->
+    <section
+      id="home"
+      class="min-h-[80vh] flex flex-col items-center justify-center relative px-12 md:px-24 text-white bg-cover bg-center"
+      style="background-image: url('assets/MoloFront.jpg');"
+    >
+      <!-- Dark overlay for text readability -->
+      <div class="absolute inset-0 bg-[#14213d]/70"></div>
+
+      <div class="max-w-4xl mx-auto text-center animate-fade-in z-10 relative">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+          PROJECT BAHANDI
+        </h1>
+        <p class="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
+          Explore Molo's rich cultural heritage through an
+          interactive digital map featuring historical
+          landmarks, traditional practices, local stories, and
+          community memories. Discover the places, people, and
+          traditions that shaped Molo's identity.
+        </p>
+        <a
+          href="DigitalMap.html"
+          class="video-frame-hover inline-flex items-center justify-center rounded-full bg-[#5C87C7] px-8 py-3 text-lg font-semibold text-white shadow-lg transition-all hover:bg-white hover:text-[#14213d]"
+        >
+          Explore the digital map
+        </a>
+      </div>
+    </section>
+
+
+    <div class="w-full h-[100px] flex items-center justify-center overflow-hidden bg-white">
+      <div class="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-[#14213d] to-transparent opacity-20"></div>
+    </div>
+
+    
+    <section id="about" class="py-24 px-6 md:px-12 max-w-6xl mx-auto bg-white">
+      <div class="space-y-12 animate-fade-up">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-4">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#14213d] mb-4 uppercase tracking-wide">
+            About the Project
+          </h2>
+          <div class="w-24 h-1 bg-[#14213d] mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+          
+          <!-- Video -->
+          <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/xNhHZGU3egM"
+              title="About Molo, Iloilo City"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="text-center md:text-left">
+            <div class="space-y-6 text-slate-700 leading-relaxed font-serif mb-8">
+              <div>
+                <p class="mb-3">
+                  <strong class="text-[#14213d]">PROJECT BAHANDI</strong>: An
+                  Interactive Showcase of Heritage and Identity of Molo, Iloilo
+                  City, Philippines is a digital heritage platform designed to
+                  showcase and preserve the cultural identity of Molo, Iloilo
+                  City. It provides an interactive way for learners and users to
+                  explore historical landmarks, traditional food, notable
+                  personalities, oral traditions, and community stories
+                  connected to Molo's heritage.
+                </p>
+                <p>
+                  Through digital mapping and storytelling, the project
+                  transforms heritage learning into an engaging experience
+                  where users can discover the meanings, values, and memories
+                  behind Molo's cultural elements.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-serif font-bold text-[#14213d] mb-3 mt-8 uppercase tracking-wide">
+                  Molo: A District Rich in History and Culture
+                </h3>
+                <p class="mb-3">
+                  Molo is one of the historic districts of Iloilo City, known
+                  for its significant role in the cultural and economic
+                  development of the province. During the Spanish colonial
+                  period, Molo became an important trading center where
+                  different cultures and traditions blended. Its historical
+                  structures, ancestral houses, traditions, and community
+                  stories continue to reflect the district's unique identity.
+                </p>
+                <p>
+                  Today, Molo's heritage remains alive through the people who
+                  preserve, share, and give meaning to its cultural resources.
+                </p>
+              </div>
+            </div>
+
+            <a 
+              href="about.html"
+              class="inline-block bg-[#14213d] hover:bg-[#0d1526] text-white font-serif font-semibold px-8 py-3 rounded-full shadow-md transition-colors duration-300 no-underline"
+            >
+              Learn More
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+  <section id="contact-us" class="pt-24 bg-[#14213d] text-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+        <div class="col-span-1 md:col-span-1">
+          <h2 class="text-2xl font-serif font-bold mb-4 text-[#5C87C7]">
+            PROJECT BAHANDI
+          </h2>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            An Interactive Showcase of Heritage and Identity
+            of Molo, Iloilo City, Philippines.
+            <br /><br />
+            Explore Molo’s rich cultural heritage through an
+            interactive digital map featuring historical
+            landmarks, traditional practices, local stories,
+            and community memories. Discover the places,
+            people, and traditions that shaped Molo’s
+            identity.
+          </p>
+          <a href="/digital-map" class="inline-block bg-white hover:bg-slate-100 text-[#14213d] font-bold py-3 px-8 rounded-full transition-colors uppercase tracking-wider text-sm">
+            EXPLORE
+          </a>
+        </div>
+
+        <div class="col-span-1 md:col-span-1 md:pl-12">
+          <h3 class="text-xl font-serif font-bold mb-6 text-white border-b border-white/20 pb-2 inline-block">
+            Explore
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">Home</a></li>
+            <li><a href="about.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">About</a></li>
+            <li><a href="contact.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-span-1 md:col-span-1">
+          <h3 class="text-xl font-serif font-bold mb-6 text-white border-b border-white/20 pb-2 inline-block">
+            Contact
+          </h3>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-start space-x-3">
+              <span class="w-5 h-5 mt-1 text-[#5C87C7] flex-shrink-0">✉️</span>
+              <span class="text-sm">stvepstudentcouncil18@gmail.com</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="w-5 h-5 mt-1 text-[#5C87C7] flex-shrink-0">📍</span>
+              <span class="text-sm">Luna St., La Paz, Iloilo City, Iloilo, Philippines, 5000</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="w-5 h-5 mt-1 text-[#5C87C7] flex-shrink-0">📘</span>
+              <span class="text-sm">INHS - STVEP Local Learner Government</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/20 py-12 flex flex-col items-center text-center">
+        <h4 class="text-xl font-serif italic text-[#5C87C7] mb-8 max-w-2xl">
+          "Preserving Molo’s stories, connecting generations, and celebrating the heritage shaped by its people."
+        </h4>
+
+        <div class="flex space-x-8 items-center mb-8 bg-white p-4 rounded-xl">
+          <div class="w-24">
+            <img src= "assets/Iloilo_City.jpg" alt="Iloilo City Logo" class="w-full h-auto object-contain mix-blend-multiply" />
+          </div>
+          <div class="w-24">
+            <img src="assets/Philippines.jpg" alt="Love The Philippines Logo" class="w-full h-auto object-contain mix-blend-multiply" />
+          </div>
+        </div>
+
+        <p class="text-slate-400 text-xs tracking-wider uppercase max-w-3xl leading-relaxed">
+          © 2026 PROJECT BAHANDI: An Interactive Showcase of Heritage and Identity of Molo, Iloilo City, Philippines.
+          <br />
+          All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileToggle.setAttribute('aria-expanded', String(!isHidden));
+      });
+    }
+  </script>
+</body>
+>>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042
 </html>

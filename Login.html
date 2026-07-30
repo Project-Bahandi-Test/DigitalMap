@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,3 +78,294 @@
   appId: "1:1017170558784:web:ca1c6942f68c2fec9304a5",
   measurementId: "G-FS77PDWKSK"
 };
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Bahandi - Login</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Styling for the status message box */
+    .success {
+      display: block !important;
+      background-color: #d1fae5;
+      color: #065f46;
+      border-color: #a7f3d0;
+    }
+    .warning {
+      display: block !important;
+      background-color: #fee2e2;
+      color: #991b1b;
+      border-color: #fca5a5;
+    }
+
+    .video-frame-hover {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+
+    .video-frame-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(20, 33, 61, 0.25);
+    }
+
+    .nav-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      flex-shrink: 0;
+      padding: 4px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(220,230,245,0.9));
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-icon svg {
+      width: 100%;
+      height: 100%;
+      color: #14213d;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 font-sans flex flex-col bg-slate-50">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full h-[72px] bg-[#14213d] text-white z-50 shadow-md flex items-center px-6 md:px-12">
+    <div class="relative flex-1 overflow-hidden rounded-xl px-4 py-2">
+      <div class="absolute inset-0 bg-[#14213d]/60"></div>
+      <span class="relative z-10 block font-serif text-xl font-bold tracking-wide text-white">Project Bahandi</span>
+    </div>
+
+    <div class="hidden md:flex space-x-6 text-sm font-medium items-center">
+      <a href="index.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+        </span>
+        <span>Home</span>
+      </a>
+      <a href="about.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </span>
+        <span>About</span>
+      </a>
+      <a href="contact.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 hover:text-[#5C87C7] hover:underline underline-offset-4 transition-all">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </span>
+        <span>Contact</span>
+      </a>
+      <a href="Login.html" class="video-frame-hover bg-[#5C87C7] hover:bg-white hover:text-[#14213d] text-white rounded-lg px-4 py-2 transition-all font-semibold">Login</a>
+    </div>
+
+    <button id="mobile-toggle" class="md:hidden p-2" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden fixed top-[72px] left-0 w-full bg-[#14213d] text-white flex flex-col items-center py-6 space-y-4 md:hidden z-40 shadow-lg border-t border-white/20">
+    <a href="index.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 text-lg font-medium hover:text-[#5C87C7] transition-colors">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <path d="M9 22V12h6v10"></path>
+        </svg>
+      </span>
+      <span>Home</span>
+    </a>
+    <a href="about.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 text-lg font-medium hover:text-[#5C87C7] transition-colors">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </span>
+      <span>About</span>
+    </a>
+    <a href="contact.html" class="video-frame-hover flex items-center gap-2 rounded-full px-2 py-1 text-lg font-medium hover:text-[#5C87C7] transition-colors">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </span>
+      <span>Contact</span>
+    </a>
+    <a href="Login.html" class="video-frame-hover text-lg font-medium hover:text-[#5C87C7] transition-colors">Login</a>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 pt-[72px] flex items-center justify-center py-12 px-6">
+    <div class="max-w-4xl w-full bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden grid grid-cols-1 md:grid-cols-5">
+      
+      <!-- Visual Side Banner -->
+      <div class="md:col-span-2 relative overflow-hidden rounded-tr-2xl rounded-br-2xl bg-cover bg-center text-white p-8 md:p-10" style="background-image: url('assets/STVEPLG.jpg'); min-height: 100%;">
+        <div class="absolute inset-0 bg-slate-950/60"></div>
+        <div class="relative z-10 flex h-full flex-col justify-between gap-6">
+          <div>
+            <span class="text-[#5C87C7] uppercase text-xs font-semibold tracking-wider block mb-2">Account Login</span>
+            <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4">Welcome Back</h2>
+            <p class="text-slate-200 text-sm leading-relaxed">
+              Enter your email and password to access the Project Bahandi dashboard.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-white/20 text-xs text-slate-300">
+            Project Bahandi &copy; Heritage Showcase
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Form Area -->
+      <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h1 class="text-2xl font-serif font-bold text-[#14213d]">Log In</h1>
+            <a href="index.html" class="text-xs font-semibold text-[#5C87C7] hover:underline">Back to Home</a>
+          </div>
+
+          <!-- Status Message Element (Fixed/Added) -->
+          <div id="loginMessage" class="hidden text-xs p-3 rounded-lg border mb-4"></div>
+
+          <form id="loginForm" class="space-y-4" onsubmit="return false;">
+            <div>
+              <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Email</label>
+              <input id="email" type="email" placeholder="name@example.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#5C87C7] transition-all" required />
+            </div>
+
+            <div>
+              <label for="password" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Password</label>
+              <input id="password" type="password" placeholder="Enter your password" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#5C87C7] transition-all" required />
+            </div>
+
+            <button id="btnLocalSignIn" type="submit" class="w-full bg-[#14213d] hover:bg-[#1a2b50] text-white font-semibold py-3 px-6 rounded-full text-sm transition-colors uppercase tracking-wider mt-2">
+              Log In
+            </button>
+
+            <!-- Google Sign In Button (Added) -->
+            <button id="btnGoogleSignIn" type="button" class="w-full border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold py-2.5 px-6 rounded-full text-sm transition-colors flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+              Sign in with Google
+            </button>
+
+            <p class="text-center text-xs text-slate-500 mt-4">
+              Don’t have an account? <a href="signup.html" class="font-semibold text-[#5C87C7] hover:underline">Sign Up</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3 items-center justify-between">
+          <a href="index.html" class="bg-[#5C87C7] hover:bg-[#4a72ad] text-white text-xs font-semibold py-2.5 px-4 rounded-full transition-colors uppercase tracking-wider text-center">
+            Proceed to User Home
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Contact Section & Footer -->
+  <section id="contact-us" class="pt-24 bg-[#14213d] text-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+        <div class="col-span-1 md:col-span-1">
+          <h2 class="text-2xl font-serif font-bold mb-4 text-[#5C87C7]">PROJECT BAHANDI</h2>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            An Interactive Showcase of Heritage and Identity of Molo, Iloilo City, Philippines.
+          </p>
+          <a href="interactive-map.html" class="inline-block bg-white hover:bg-slate-100 text-[#14213d] font-bold py-3 px-8 rounded-full transition-colors uppercase tracking-wider text-sm">
+            EXPLORE
+          </a>
+        </div>
+        <div class="col-span-1 md:col-span-1 md:pl-12">
+          <h3 class="text-xl font-serif font-bold mb-6 text-white border-b border-white/20 pb-2 inline-block">Explore</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">HOME</a></li>
+            <li><a href="about.html" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">ABOUT</a></li>
+            <li><a href="#contact-us" class="text-slate-300 hover:text-[#5C87C7] transition-colors uppercase tracking-wider text-sm">CONTACT</a></li>
+          </ul>
+        </div>
+        <div class="col-span-1 md:col-span-1">
+          <h3 class="text-xl font-serif font-bold mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h3>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-start space-x-3"><span class="text-sm">stvepstudentcouncil18@gmail.com</span></li>
+            <li class="flex items-start space-x-3"><span class="text-sm">Luna St., La Paz, Iloilo City, Iloilo, Philippines, 5000</span></li>
+            <li class="flex items-start space-x-3"><span class="text-sm">INHS - STVEP Local Learner Government</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/20 py-12 flex flex-col items-center text-center">
+        <p class="text-slate-400 text-xs tracking-wider uppercase max-w-3xl leading-relaxed">
+          © <span id="current-year"></span> PROJECT BAHANDI. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation JS -->
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    const menuToggleBtn = document.getElementById("mobile-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuToggleBtn && mobileMenu) {
+      menuToggleBtn.addEventListener("click", () => {
+        const isHidden = mobileMenu.classList.toggle("hidden");
+        menuToggleBtn.setAttribute("aria-expanded", String(!isHidden));
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuToggleBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+
+  <!-- Working Firebase Auth Setup -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getAuth, 
+      signInWithEmailAndPassword, 
+      GoogleAuthProvider, 
+      signInWithPopup 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { 
+      getFirestore, 
+      doc, 
+      setDoc, 
+      serverTimestamp 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDcAjMKFAnNBiFfIhekOPtRadiCb0Ly8Ng",
+      authDomain: "projectbahandi-7149a.firebaseapp.com",
+      projectId: "projectbahandi-7149a",
+      storageBucket: "projectbahandi-7149a.firebasestorage.app",
+      messagingSenderId: "1017170558784",
+      appId: "1:1017170558784:web:ca1c6942f68c2fec9304a5",
+      measurementId: "G-FS77PDWKSK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.auth = getAuth(app);
+    window.db = getFirestore(app);
+    window.googleProvider = new GoogleAuthProvider();
+  </script>
+
+  <!-- JavaScript Login Module File -->
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
+>>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 * {
   -webkit-font-smoothing: antialiased;
@@ -22,3 +23,28 @@ a {
   font-family: "Julius Sans One-Regular";
   src: local("Julius Sans One-Regular");
 }
+=======
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  min-height: 100%;
+}
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+/* @FONTWARNING[{"type": "restricted", "family": "Julius Sans One-Regular", "weight": "400", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Julius Sans One-Regular";
+  src: local("Julius Sans One-Regular");
+}
+>>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042

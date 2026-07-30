@@ -24,6 +24,33 @@ if (!ffPopover) {
     document.body.appendChild(ffPopover);
 }
 
+// Default Fallback Image Path
+const DEFAULT_IMAGE = "assets/images/MoloFront.jpg";
+
+// Helper function to safely resolve and format image URLs (Handles Google Drive & Firestore fields)
+function getSiteImageUrl(site) {
+    if (!site) return DEFAULT_IMAGE;
+    
+    // Check all possible field variations (including plural 'images' from Firestore)
+    let rawUrl = site.images || site.image || site.imageUrl || site.image_url;
+    
+    if (rawUrl && typeof rawUrl === 'string' && rawUrl.trim() !== '') {
+        rawUrl = rawUrl.trim();
+        
+        // Convert Google Drive view/share links into direct image source URLs
+        if (rawUrl.includes('drive.google.com')) {
+            const matches = rawUrl.match(/\/d\/([^\/\?]+)/);
+            if (matches && matches[1]) {
+                const fileId = matches[1];
+                return `https://lh3.googleusercontent.com/d/${fileId}`;
+            }
+        }
+        
+        return rawUrl;
+    }
+    return DEFAULT_IMAGE;
+}
+
 // ==================== 2. MOUSE TRAILING ====================
 document.addEventListener('mousemove', function (e) {
     if (previewCard && !previewCard.classList.contains('hidden')) {
@@ -66,10 +93,19 @@ function selectLandmark(siteId) {
         blueprintPanel.classList.remove('active');
     }
 
+    // --- UPDATED IMAGE HANDLING LOGIC ---
     if (sidebarImage) {
-        sidebarImage.src = site.image || "assets/images/MoloFront.jpg";
+        const imgSrc = getSiteImageUrl(site);
+        sidebarImage.src = imgSrc;
         sidebarImage.alt = site.site_name || "Landmark Image";
         sidebarImage.style.display = 'block';
+
+        // Error fallback: If the link fails or 404s, swap to default image automatically
+        sidebarImage.onerror = function() {
+            console.warn(`[MapHandler] Failed to load image at "${imgSrc}" for ${site.site_name}. Using fallback image.`);
+            this.onerror = null; // Prevents infinite loop if fallback image is missing
+            this.src = DEFAULT_IMAGE;
+        };
     }
 
     if (sidebarTitle) {
@@ -252,9 +288,11 @@ function handleHistoricalSignificance() {
                          currentSelectedSite.description ||
                          "Historical significance details are maintained under official cultural heritage record archives.";
 
+    const siteImg = getSiteImageUrl(currentSelectedSite);
+
     const content = `
         <div class="frame-editorial-card">
-            <div class="editorial-left-panel" style="background-image: url('${currentSelectedSite.image || 'assets/images/MoloFront.jpg'}')">
+            <div class="editorial-left-panel" style="background-image: url('${siteImg}')">
                 <div class="editorial-left-overlay">
                     <div class="editorial-home-badge">🏛️</div>
                     <div class="editorial-left-footer">

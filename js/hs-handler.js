@@ -1,101 +1,66 @@
-/* =========================================================
-   HS - Heritage Status / Verified Seal Modal Handler
-   Manages Seal Modal State & Dynamic Registry Field Ingestion
-   ========================================================= */
+/**
+ * Project Bahandi - Heritage Status (HS) Controller
+ */
 
-(function () {
+/**
+ * Opens and populates the Heritage Status (HS) Certificate Modal
+ */
+function openHSModal() {
+    const hsOverlay = document.getElementById('hs-overlay');
+    if (!hsOverlay) return;
 
-    /**
-     * Synchronizes current active landmark data into the Certificate fields
-     */
-    function syncHSData() {
-        const site = window.currentSelectedSite || {};
+    const site = window.currentSelectedSite;
 
-        const certEntryCode = document.getElementById('hs-entry-code');
-        const certCategory = document.getElementById('hs-category-label');
-        const certTitle = document.getElementById('hs-landmark-title');
-        const certSummary = document.getElementById('hs-summary-text');
+    // Registry Header Fields
+    const regCodeEl = document.getElementById('hs-reg-code');
+    const authByEl = document.getElementById('hs-auth-by');
+    
+    if (regCodeEl) regCodeEl.innerText = site?.registry_id || site?.site_id || 'BHD-REG-2026';
+    if (authByEl) authByEl.innerText = site?.authenticator || site?.governing_body || 'NHCP / ILOILO HERITAGE COUNCIL';
 
-        const fieldRegistry = document.getElementById('hs-val-registry');
-        const fieldMarkerYr = document.getElementById('hs-val-markeryr');
-        const fieldOrdinance = document.getElementById('hs-val-ordinance');
+    // Main Details
+    const titleEl = document.getElementById('hs-landmark-title');
+    const summaryEl = document.getElementById('hs-summary-text');
 
-        // Populate Top Right Entry Reference
-        if (certEntryCode) {
-            certEntryCode.innerText = site.site_id || 'BHD-ML-0001';
-        }
-
-        // Category Tag
-        if (certCategory) {
-            certCategory.innerText = site.category 
-                ? `CERTIFIED · ${site.category.toUpperCase()}` 
-                : 'CERTIFIED · HERITAGE LANDMARK';
-        }
-
-        // Title Split into Emphasized HTML if name has multiple words
-        if (certTitle) {
-            if (site.name) {
-                const words = site.name.split(' ');
-                if (words.length > 1) {
-                    const lastWord = words.pop();
-                    certTitle.innerHTML = `${words.join(' ')} <em>${lastWord}</em>`;
-                } else {
-                    certTitle.innerText = site.name;
-                }
-            } else {
-                certTitle.innerHTML = 'Molo <em>Mansion</em>';
-            }
-        }
-
-        // Summary Text
-        if (certSummary) {
-            certSummary.innerText = site.status_summary || 
-                site.description || 
-                "Official designation verified under local heritage registry protection and historic conservation guidelines.";
-        }
-
-        // Field 1: Registry Authority
-        if (fieldRegistry) {
-            fieldRegistry.innerText = site.registry || site.status || 'NHCP Registered';
-        }
-
-        // Field 2: Marker / Construction Year
-        if (fieldMarkerYr) {
-            fieldMarkerYr.innerText = site.year_built || site.built ? `[ ${site.year_built || site.built} ]` : '[ Year ]';
-        }
-
-        // Field 3: Ordinance / Resolution No.
-        if (fieldOrdinance) {
-            fieldOrdinance.innerText = site.ordinance_no ? `No. [${site.ordinance_no}]` : 'No. [—]';
-        }
+    if (titleEl) {
+        const titleText = site?.site_name || site?.title || 'Molo Heritage Site';
+        titleEl.innerHTML = titleText.replace(/\b(\w+)$/, '<em>$1</em>');
     }
 
-    /**
-     * Opens the Heritage Status Seal Certificate Modal
-     */
-    window.openHSModal = function () {
-        const modal = document.getElementById('hs-overlay');
-        if (!modal) return;
+    if (summaryEl) {
+        summaryEl.innerText = site?.hs_summary 
+            || site?.heritage_description 
+            || "Officially certified as an active cultural heritage structure under local and national preservation standards.";
+    }
 
-        syncHSData();
-        modal.classList.add('active');
-    };
+    // Grid Data Fields
+    const fieldReg = document.getElementById('hs-val-registry');
+    const fieldMarker = document.getElementById('hs-val-marker');
+    const fieldOrdinance = document.getElementById('hs-val-ordinance');
 
-    /**
-     * Closes the Heritage Status Seal Certificate Modal
-     */
-    window.closeHSModal = function () {
-        const modal = document.getElementById('hs-overlay');
-        if (modal) {
-            modal.classList.remove('active');
-        }
-    };
+    if (fieldReg) fieldReg.innerText = site?.legal_classification || site?.heritage_status || 'NATIONAL HERITAGE LANDMARK';
+    if (fieldMarker) fieldMarker.innerText = site?.marker_year || site?.built_year || '19TH CENTURY';
+    if (fieldOrdinance) fieldOrdinance.innerText = site?.ordinance_no || site?.declaration_no || 'ORD NO. 2012-084';
 
-    // Global Key Listener for ESC key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            window.closeHSModal();
-        }
-    });
+    // Footer Source Link
+    const sourceLink = document.getElementById('hs-source-link');
+    if (sourceLink) {
+        sourceLink.href = site?.legal_document_url || site?.archive_url || '#';
+    }
 
-})();
+    hsOverlay.classList.add('active');
+}
+
+/**
+ * Closes the Heritage Status (HS) Certificate Modal
+ */
+function closeHSModal() {
+    const hsOverlay = document.getElementById('hs-overlay');
+    if (hsOverlay) {
+        hsOverlay.classList.remove('active');
+    }
+}
+
+// Global Exports
+window.openHSModal = openHSModal;
+window.closeHSModal = closeHSModal;

@@ -5,7 +5,7 @@
 .hsc-panel {
     position: fixed;
     top: 0;
-    right: -600px; /* Hidden off-screen to the right */
+    right: -600px;
     width: 580px;
     max-width: 90vw;
     height: 100vh;
@@ -21,12 +21,10 @@
     box-sizing: border-box;
 }
 
-/* Slide in from the right */
 .hsc-panel.active {
     right: 0;
 }
 
-/* Header & Close Action */
 .hsc-panel-header {
     display: flex;
     justify-content: space-between;
@@ -68,7 +66,6 @@
     background: rgba(37, 99, 235, 0.15);
 }
 
-/* Main Content Wrapper */
 .hsc-panel-content {
     padding: 24px 28px;
     display: flex;
@@ -76,7 +73,6 @@
     gap: 20px;
 }
 
-/* Hero Image & Badge Banner */
 .hsc-hero-banner {
     position: relative;
     width: 100%;
@@ -132,7 +128,6 @@
     margin: 2px 0 0 0;
 }
 
-/* Title & Navigation Tabs */
 .hsc-editorial-title {
     font-family: 'Instrument Serif', serif;
     font-size: 34px;
@@ -171,7 +166,6 @@
     border-color: #3B82F6;
 }
 
-/* Dynamic Body Text */
 .hsc-body-box {
     display: flex;
     flex-direction: column;
@@ -198,7 +192,6 @@
     margin: 0;
 }
 
-/* Footer Section */
 .hsc-panel-footer {
     margin-top: auto;
     padding: 20px 28px 28px 28px;

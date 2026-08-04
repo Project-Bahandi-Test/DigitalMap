@@ -1,294 +1,3 @@
-<<<<<<< HEAD
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@500;700;800&display=swap");
-
-:root {
-  --bg: #f6f2e8;
-  --bg-alt: #fffdf8;
-  --ink: #17202b;
-  --muted: #5f6670;
-  --brand: #0f766e;
-  --brand-strong: #075e57;
-  --accent: #e36f2d;
-  --line: #d7d1c4;
-  --card: #ffffff;
-  --success: #2b9348;
-  --danger: #c03a2b;
-  --shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  --radius: 18px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "DM Sans", "Segoe UI", sans-serif;
-  color: var(--ink);
-  background: var(--bg);
-}
-
-body {
-  min-height: 100vh;
-  background-image: radial-gradient(circle at 20% 20%, rgba(227, 111, 45, 0.16), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(15, 118, 110, 0.2), transparent 40%),
-    linear-gradient(160deg, #f6f2e8 0%, #f3ecde 100%);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(1120px, 92vw);
-  margin: 0 auto;
-}
-
-.site-header,
-.minimal-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(215, 209, 196, 0.75);
-  backdrop-filter: blur(6px);
-  background: rgba(255, 253, 248, 0.82);
-}
-
-.top-title-bar,
-.navbar {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.top-title-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.top-title-right {
-  justify-content: flex-end;
-}
-
-.title-wordmark,
-.brand {
-  font-family: "Syne", sans-serif;
-  font-size: clamp(1.06rem, 2.2vw, 1.3rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  letter-spacing: 0.3px;
-}
-
-.brand-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(140deg, var(--brand), #26a69a);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 0.95rem;
-  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.18);
-}
-
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.nav-links a {
-  font-weight: 600;
-  color: var(--muted);
-  transition: color 0.22s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--brand-strong);
-}
-
-.btn {
-  border: none;
-  border-radius: 999px;
-  padding: 11px 18px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.22s ease, background 0.22s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-.btn-primary {
-  color: #fff;
-  background: linear-gradient(120deg, var(--brand), #178a81);
-  box-shadow: 0 10px 20px rgba(15, 118, 110, 0.28);
-}
-
-.btn-primary:hover {
-  box-shadow: 0 14px 24px rgba(15, 118, 110, 0.32);
-}
-
-.btn-outline {
-  color: var(--brand-strong);
-  background: transparent;
-  border: 1.4px solid rgba(15, 118, 110, 0.45);
-}
-
-.btn-accent {
-  color: #fff;
-  background: linear-gradient(120deg, var(--accent), #e2942d);
-  box-shadow: 0 10px 20px rgba(227, 111, 45, 0.28);
-}
-
-.section {
-  padding: 26px 0 56px;
-}
-
-.section h2 {
-  margin: 0 0 16px;
-  font-size: clamp(1.35rem, 2.7vw, 2.2rem);
-  font-family: "Syne", sans-serif;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.card {
-  border-radius: var(--radius);
-  background: var(--card);
-  border: 1px solid rgba(215, 209, 196, 0.9);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  padding: 20px;
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 1.06rem;
-}
-
-.card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.58;
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.note {
-  margin: 0;
-  font-size: 0.88rem;
-  color: var(--muted);
-}
-
-.warning {
-  color: var(--danger);
-  font-size: 0.88rem;
-}
-
-.success {
-  color: var(--success);
-}
-
-.panel {
-  border-radius: var(--radius);
-  background: #fff;
-  border: 1px solid rgba(215, 209, 196, 0.9);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-  padding: 16px;
-}
-
-.footer {
-  margin-top: 50px;
-  border-top: 1px solid rgba(215, 209, 196, 0.8);
-  padding: 20px 0 35px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal {
-  animation: riseIn 0.58s ease both;
-}
-
-.reveal-delay-1 {
-  animation-delay: 0.08s;
-}
-
-.reveal-delay-2 {
-  animation-delay: 0.16s;
-}
-
-.reveal-delay-3 {
-  animation-delay: 0.24s;
-}
-
-@media (max-width: 980px) {
-  .split {
-    grid-template-columns: 1fr;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .nav-links {
-    gap: 12px;
-    font-size: 0.94rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-=======
 /* ==================== GLOBAL RESETS & DEFAULTS ==================== */
  * {
     margin: 0;
@@ -398,27 +107,7 @@ body, html {
 }
 
 /* TEMPORARY SYSTEM BLUEPRINT BACKGROUND MAP GRID */
-.blueprint-grid-placeholder {
-    opacity: 60%;
-    flex:1;
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
-    background-color: #163e54;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index:2;
-    pointer-events: none;
-}
+
 
 .placeholder-overlay-text {
     color: #4b5e68;
@@ -690,25 +379,53 @@ body, html {
 .mini-btn {
     width: 100%;
     padding: 0.6rem 0;
-    background-color: #1E293B;
-    border: 1px solid #2563EB ;
-    color: #fff;
+    background-color: rgba(59, 130, 246, 0.06); 
+    border: 1px solid rgba(59, 130, 246, 0.25);  
+    color: #3B82F6;                              
     font-weight: bold;
     font-size: 0.8rem;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mini-btn img {
+    max-width: 20px;
+    max-height: 20px;
+    object-fit: contain;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease;
 }
 
 .mini-btn:hover {
-    background-color: #3b83f638;
-    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2); 
 }
 
-.mini-btn-wrapper:hover {
-    background-color: #3b83f6;
-    border-color: #3b82f6;
-    color: #fff;
+.mini-btn:hover img {
+    transform: scale(1.08); 
+    filter: brightness(1.15); 
+}
+
+.mini-btn.active,
+.mini-btn:active {
+    background-color: #2563EB;
+    border-color: #1D4ED8;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35),
+                0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.mini-btn.active img,
+.mini-btn:active img {
+    transform: scale(1);
+    filter: brightness(2) contrast(2); /* Brightens icon so it pops on dark blue */
 }
 
 /* Smooth Sliding Hover Flyout Card */
@@ -762,7 +479,3 @@ body, html {
 .hidden {
     display: none !important;
 }
-<<<<<<< HEAD
->>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042
-=======
->>>>>>> parent of 3c63b37 (Sidebar and map renovation and literally just everything)

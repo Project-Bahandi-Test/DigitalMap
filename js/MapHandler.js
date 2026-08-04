@@ -1,185 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-// ==================== 1. CORE DATA SOURCE STORE (DICTIONARY OBJECT) ====================
-const landmarkData = {
-    'molo-mansion': {
-        title: "Molo Mansion (Yusay-Consing Ancestral House)",
-        type: "Mansion",
-        description: "Molo Mansion is a two-story ancestral residence showcasing Neoclassical architecture with subtle Art Deco influences. Distinguished by its grand arches, spacious balconies, decorative columns, and high ceilings, the mansion reflects the elegance and wealth of prominent Ilonggo families during the early 20th century.",
-        image: "assets/Iloilo_Molo_Mansion.jpg"
-    },
-    'molo-church': {
-        title: "Molo Church (St. Anne Parish Church)",
-        type: "Churches / Religious",
-        description: "St. Anne Parish Church is a famous, Renaissance-Gothic style church built in 1831. It is prominently known as the 'Feminist Church' due to the two rows of all-female saints mounted along its structural central pillars.",
-        image: "assets/molo_church.jpg"
-    },
-    'molo-plaza': {
-        title: "Molo Plaza Pavilion",
-        type: "Plazas & Parks",
-        description: "A prominent green space situated right at the center of the district of Molo. It serves as a beautiful public pavilion hub containing classical gazebo architecture elements surrounded by statues of Greek goddesses.",
-        image: "assets/molo_plaza.jpg"
-    }
-};
-
-// ==================== 2. DOM INTERACTION SELECTORS ====================
-const sidebar = document.getElementById('info-sidebar');
-const previewCard = document.getElementById('map-preview-card');
-const mapContainer = document.querySelector('.map-container');
-const sidebarImage = document.getElementById('landmark-image');
-const sidebarTitle = document.getElementById('landmark-title');
-const sidebarDesc = document.getElementById('landmark-description');
-
-// ==================== 3. REAL-TIME MOUSE TRAILING ENGINE ====================
-document.addEventListener('mousemove', function(e) {
-    if (!previewCard.classList.contains('hidden')) {
-        previewCard.style.left = `${e.clientX + 15}px`;
-        previewCard.style.top = `${e.clientY + 15}px`;
-    }
-});
-
-// ==================== 4. HOVER MOUSE ACTIONS (HOVER ON / HOVER LEAVE) ====================
-function hoverLandmark(key) {
-    const data = landmarkData[key];
-    if (data) {
-        document.getElementById('preview-tag-text').textContent = data.type;
-        document.getElementById('preview-title-text').textContent = data.title;
-        previewCard.classList.remove('hidden');
-    }
-}
-
-function leaveLandmark() {
-    previewCard.classList.add('hidden');
-}
-
-// ==================== 5. CLICK SELECTION INTERFACES (OPEN/CLOSE CARD) ====================
-function selectLandmark(key) {
-    const data = landmarkData[key];
-    if (data) {
-        // Swap values smoothly inside DOM node points
-        sidebarImage.src = data.image;
-        sidebarImage.alt = data.title;
-        sidebarTitle.textContent = data.title;
-        sidebarDesc.textContent = data.description;
-        
-        // Safety: ensure image displays if data source exists
-        sidebarImage.style.display = 'block';
-        
-        // Slides sidebar card panel fully into focus fields from right screen borders
-        sidebar.classList.remove('collapsed');
-    }
-}
-
-function closeSidebar() {
-    sidebar.classList.add('collapsed');
-}
-
-
-//Map
-
-var map = L.map("map", {
-    minZoom:17,
-    maxZoom:19
-}).setView([10.697008, 122.544031],18);
-var southWest = L.latLng(10.694293, 122.540925);
-var northEast = L.latLng(10.699216, 122.546697);
-
-var bounds = L.latLngBounds(southWest, northEast)
-
-map.setMaxBounds(bounds);
-
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
-
-
-//Interactive Map Pins
-
-//Pin Style
-const pinIcon = L.icon({
-    iconUrl: 'assets/Location_Pin.png',
-    className: "Location_Pin",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30]
-});
-
-
-
-//Mansion
-L.marker([10.696444, 122.543473],{icon: pinIcon}).addTo(map)
-.on("click",function(){
-    selectLandmark("molo-mansion");
-    
-})
-.on("mouseover",function(){
-    hoverLandmark("molo-mansion");
-})
-.on("mouseout",function(){
-    leaveLandmark();
-});
-
-
-//Church
-L.marker([10.697398, 122.544808],{icon: pinIcon}).addTo(map)
-.on("click",function(){
-    selectLandmark("molo-church");
-})
-.on("mouseover",function(){
-    hoverLandmark("molo-church");
-})
-.on("mouseout",function(){
-    leaveLandmark();
-});
-
-
-//Plaza
-L.marker([10.696913, 122.544191],{icon: pinIcon}).addTo(map)
-.on("click",function(){
-    selectLandmark("molo-plaza");
-})
-.on("mouseover",function(){
-    hoverLandmark("molo-plaza");
-})
-.on("mouseout",function(){
-    leaveLandmark();
-});
-=======
 // ==================== 1. DOM SELECTORS & GLOBAL SCOPE ====================
-=======
-// ==================== 1. CORE DATA SOURCE STORE (DICTIONARY OBJECT) ====================
-const landmarkData = {
-    'molo-mansion': {
-        title: "Molo Mansion (Yusay-Consing Ancestral House)",
-        type: "Mansion",
-        description: "Molo Mansion is a two-story ancestral residence showcasing Neoclassical architecture with subtle Art Deco influences. Distinguished by its grand arches, spacious balconies, decorative columns, and high ceilings, the mansion reflects the elegance and wealth of prominent Ilonggo families during the early 20th century.",
-        image: "assets/Iloilo_Molo_Mansion.jpg"
-    },
-    'molo-church': {
-        title: "Molo Church (St. Anne Parish Church)",
-        type: "Churches / Religious",
-        description: "St. Anne Parish Church is a famous, Renaissance-Gothic style church built in 1831. It is prominently known as the 'Feminist Church' due to the two rows of all-female saints mounted along its structural central pillars.",
-        image: "assets/molo_church.jpg"
-    },
-    'molo-plaza': {
-        title: "Molo Plaza Pavilion",
-        type: "Plazas & Parks",
-        description: "A prominent green space situated right at the center of the district of Molo. It serves as a beautiful public pavilion hub containing classical gazebo architecture elements surrounded by statues of Greek goddesses.",
-        image: "assets/molo_plaza.jpg"
-    }
-};
-
-// ==================== 2. DOM INTERACTION SELECTORS ====================
->>>>>>> parent of 3c63b37 (Sidebar and map renovation and literally just everything)
 const sidebar = document.getElementById('info-sidebar');
 const previewCard = document.getElementById('map-preview-card');
-const mapContainer = document.querySelector('.map-container');
 const sidebarImage = document.getElementById('landmark-image');
 const sidebarTitle = document.getElementById('landmark-title');
 const sidebarDesc = document.getElementById('landmark-description');
 
-<<<<<<< HEAD
 const featureModal = document.getElementById('feature-modal');
 const modalContent = document.getElementById('modal-content');
 let ffPopover = document.getElementById('ff-popover-wrapper');
@@ -199,61 +24,32 @@ if (!ffPopover) {
     document.body.appendChild(ffPopover);
 }
 
-// Default Fallback Image Path
-const DEFAULT_IMAGE = "assets/images/MoloFront.jpg";
-
-// Helper function to safely resolve and format image URLs (Handles Google Drive & Firestore fields)
-function getSiteImageUrl(site) {
-    if (!site) return DEFAULT_IMAGE;
-    
-    // Check all possible field variations (including plural 'images' from Firestore)
-    let rawUrl = site.images || site.image || site.imageUrl || site.image_url;
-    
-    if (rawUrl && typeof rawUrl === 'string' && rawUrl.trim() !== '') {
-        rawUrl = rawUrl.trim();
-        
-        // Convert Google Drive view/share links into direct image source URLs
-        if (rawUrl.includes('drive.google.com')) {
-            const matches = rawUrl.match(/\/d\/([^\/\?]+)/);
-            if (matches && matches[1]) {
-                const fileId = matches[1];
-                return `https://lh3.googleusercontent.com/d/${fileId}`;
-            }
-        }
-        
-        return rawUrl;
-    }
-    return DEFAULT_IMAGE;
-}
-
 // ==================== 2. MOUSE TRAILING ====================
 document.addEventListener('mousemove', function (e) {
     if (previewCard && !previewCard.classList.contains('hidden')) {
-=======
-// ==================== 3. REAL-TIME MOUSE TRAILING ENGINE ====================
-document.addEventListener('mousemove', function(e) {
-    if (!previewCard.classList.contains('hidden')) {
->>>>>>> parent of 3c63b37 (Sidebar and map renovation and literally just everything)
         previewCard.style.left = `${e.clientX + 15}px`;
         previewCard.style.top = `${e.clientY + 15}px`;
     }
 });
 
-// ==================== 4. HOVER MOUSE ACTIONS (HOVER ON / HOVER LEAVE) ====================
-function hoverLandmark(key) {
-    const data = landmarkData[key];
-    if (data) {
-        document.getElementById('preview-tag-text').textContent = data.type;
-        document.getElementById('preview-title-text').textContent = data.title;
-        previewCard.classList.remove('hidden');
+// ==================== 3. LANDMARK SELECTION ====================
+function hoverLandmark(siteId) {
+    const site = siteStore[siteId];
+    if (site) {
+        const previewTag = document.getElementById('preview-tag-text');
+        const previewTitle = document.getElementById('preview-title-text');
+
+        if (previewTag) previewTag.textContent = site.category || "Cultural Site";
+        if (previewTitle) previewTitle.textContent = site.site_name || "Landmark";
+
+        if (previewCard) previewCard.classList.remove('hidden');
     }
 }
 
 function leaveLandmark() {
-    previewCard.classList.add('hidden');
+    if (previewCard) previewCard.classList.add('hidden');
 }
 
-<<<<<<< HEAD
 function selectLandmark(siteId) {
     const site = siteStore[siteId];
     if (!site) return;
@@ -270,19 +66,10 @@ function selectLandmark(siteId) {
         blueprintPanel.classList.remove('active');
     }
 
-    // --- UPDATED IMAGE HANDLING LOGIC ---
     if (sidebarImage) {
-        const imgSrc = getSiteImageUrl(site);
-        sidebarImage.src = imgSrc;
+        sidebarImage.src = site.image || "assets/MoloFront.jpg";
         sidebarImage.alt = site.site_name || "Landmark Image";
         sidebarImage.style.display = 'block';
-
-        // Error fallback: If the link fails or 404s, swap to default image automatically
-        sidebarImage.onerror = function() {
-            console.warn(`[MapHandler] Failed to load image at "${imgSrc}" for ${site.site_name}. Using fallback image.`);
-            this.onerror = null; // Prevents infinite loop if fallback image is missing
-            this.src = DEFAULT_IMAGE;
-        };
     }
 
     if (sidebarTitle) {
@@ -294,91 +81,130 @@ function selectLandmark(siteId) {
     }
 
     if (sidebar) {
-=======
-// ==================== 5. CLICK SELECTION INTERFACES (OPEN/CLOSE CARD) ====================
-function selectLandmark(key) {
-    const data = landmarkData[key];
-    if (data) {
-        // Swap values smoothly inside DOM node points
-        sidebarImage.src = data.image;
-        sidebarImage.alt = data.title;
-        sidebarTitle.textContent = data.title;
-        sidebarDesc.textContent = data.description;
-        
-        // Safety: ensure image displays if data source exists
-        sidebarImage.style.display = 'block';
-        
-        // Slides sidebar card panel fully into focus fields from right screen borders
->>>>>>> parent of 3c63b37 (Sidebar and map renovation and literally just everything)
         sidebar.classList.remove('collapsed');
+    }
+
+    syncBlueprintPanel();
+}
+
+function syncBlueprintPanel() {
+    if (!window.currentSelectedSite) return;
+    const site = window.currentSelectedSite;
+
+    const bpTitle = document.getElementById('bp-landmark-title');
+    const bpRef = document.getElementById('bp-ref-code');
+    const bpCoords = document.getElementById('bp-coords-text');
+    const bpDesc = document.getElementById('bp-landmark-desc');
+    const bpBuilt = document.getElementById('bp-data-built');
+    const bpStyle = document.getElementById('bp-data-style');
+    const bpStatus = document.getElementById('bp-data-status');
+
+    if (bpTitle) bpTitle.innerHTML = site.site_name || "Landmark Overview";
+    if (bpRef) bpRef.innerText = `REF · ${site.site_id || 'BHD-ML-0001'} · FULL DETAILS`;
+    if (bpCoords && site.coordinates) bpCoords.innerText = `${site.coordinates[0]}° N · ${site.coordinates[1]}° E`;
+    if (bpDesc) bpDesc.innerText = site.description || site.historical_significance || "No extended overview recorded.";
+    if (bpBuilt) bpBuilt.innerText = site.built_year || site.built || "—";
+    if (bpStyle) bpStyle.innerText = site.architectural_style || site.style || "—";
+    if (bpStatus) bpStatus.innerText = site.heritage_status || site.status || "—";
+}
+window.syncBlueprintPanel = syncBlueprintPanel;
+
+function closeSidebar() {
+    if (typeof window.closeSidebar === 'function') {
+        window.closeSidebar();
     }
 }
 
-function closeSidebar() {
-    sidebar.classList.add('collapsed');
+// ==================== 4. MODAL CONTROLLER ====================
+function openFeatureModal(htmlContent) {
+    if (featureModal && modalContent) {
+        modalContent.innerHTML = htmlContent;
+        featureModal.classList.remove('hidden');
+    }
 }
 
+function closeFeatureModal() {
+    if (featureModal) {
+        featureModal.classList.add('hidden');
+    }
+}
 
-//Map
+// ==================== 5. CUSTOM UI FRAME RENDERERS ====================
+function handleFullDetails() {
+    if (!currentSelectedSite) return;
 
-var map = L.map("map", {
-    minZoom:17,
-    maxZoom:19
-}).setView([10.697008, 122.544031],18);
-var southWest = L.latLng(10.694293, 122.540925);
-var northEast = L.latLng(10.699216, 122.546697);
+    const refNo = currentSelectedSite.ref_no || currentSelectedSite.site_id || "BHD-ML-0001";
+    const coords = currentSelectedSite.coordinates ? `${currentSelectedSite.coordinates[0]}° N · ${currentSelectedSite.coordinates[1]}° E` : "10.6960° N · 122.5490° E";
 
-var bounds = L.latLngBounds(southWest, northEast)
+    const content = `
+        <div class="frame-blueprint-card">
+            <div class="bp-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <div class="bp-ref-line">REF · ${refNo} · FULL DETAILS</div>
+            <h2 class="bp-title">${currentSelectedSite.site_name}</h2>
 
-map.setMaxBounds(bounds);
+            <div class="bp-tabs">
+                <span class="bp-tab active">OVERVIEW</span>
+                <span class="bp-tab">ARCHITECTURE</span>
+                <span class="bp-tab">GALLERY</span>
+            </div>
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
+            <div class="bp-section">
+                <div class="bp-section-label">— OVERVIEW</div>
+                <p class="bp-description"><strong>${currentSelectedSite.site_name}</strong>, ${currentSelectedSite.description || 'A key heritage monument located in Iloilo.'}</p>
+            </div>
 
+            <div class="bp-section">
+                <div class="bp-section-label">— DATA SHEET</div>
+                <div class="bp-data-grid">
+                    <div><span>BUILT</span> <strong>${currentSelectedSite.built_year || '[ Year ]'}</strong></div>
+                    <div><span>STYLE</span> <strong>${currentSelectedSite.architectural_style || 'Neoclassical / Art Deco accents'}</strong></div>
+                    <div><span>STOREYS</span> <strong>${currentSelectedSite.storeys || 'Two'}</strong></div>
+                    <div><span>STATUS</span> <strong>${currentSelectedSite.heritage_status || 'Declared Heritage Site'}</strong></div>
+                </div>
+            </div>
 
-//Interactive Map Pins
+            <div class="bp-footer">
+                <span class="bp-coords">${coords}</span>
+                <button class="bp-action-btn" onclick="alert('Navigating to full archive record...')">OPEN FULL PAGE →</button>
+            </div>
+        </div>
+    `;
 
-//Pin Style
-const pinIcon = L.icon({
-    iconUrl: 'assets/Location_Pin.png',
-    className: "Location_Pin",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30]
-});
+    openFeatureModal(content);
+}
 
-
-
-//Mansion
-L.marker([10.696444, 122.543473],{icon: pinIcon}).addTo(map)
-.on("click",function(){
-    selectLandmark("molo-mansion");
+function handleQRCode() {
+    if (!currentSelectedSite) return;
+    const qrUrl = currentSelectedSite.qrCodeUrl || 
+                  `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(window.location.href)}`;
     
-})
-.on("mouseover",function(){
-    hoverLandmark("molo-mansion");
-})
-.on("mouseout",function(){
-    leaveLandmark();
-});
+    openFeatureModal(`
+        <div class="frame-qr-container" style="text-align: center; color: #f8fafc; padding: 20px;">
+            <div class="ff-counter" style="margin-bottom: 10px;">SCAN ACCESS · ${currentSelectedSite.site_id || 'BHD-ML'}</div>
+            <h3 style="font-family: 'Montserrat', serif; margin-bottom: 10px;">${currentSelectedSite.site_name}</h3>
+            <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 20px;">Scan using your smartphone camera to access mobile guided tour data.</p>
+            <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); padding: 15px; border-radius: 12px; display: inline-block;">
+                <img src="${qrUrl}" alt="QR Code" style="width: 180px; height: 180px; display: block;" />
+            </div>
+        </div>
+    `);
+}
 
+function handleHeritageStatus() {
+    if (!currentSelectedSite) return;
 
-//Church
-L.marker([10.697398, 122.544808],{icon: pinIcon}).addTo(map)
-.on("click",function(){
-    selectLandmark("molo-church");
-})
-.on("mouseover",function(){
-    hoverLandmark("molo-church");
-})
-.on("mouseout",function(){
-    leaveLandmark();
-});
+    const refNo = currentSelectedSite.entry_no || currentSelectedSite.site_id || "BHD-ML-0001";
+    const status = currentSelectedSite.heritage_status || "Declared National Historical Landmark / Cultural Heritage Site";
 
+    const content = `
+        <div class="frame-seal-card">
+            <div class="seal-header">
+                <span>BAHANDI · HERITAGE REGISTRY</span>
+                <span>ENTRY · ${refNo}</span>
+            </div>
 
-<<<<<<< HEAD
             <div class="seal-body">
                 <div class="seal-badge-container">
                     <div class="seal-shield-icon">
@@ -426,11 +252,9 @@ function handleHistoricalSignificance() {
                          currentSelectedSite.description ||
                          "Historical significance details are maintained under official cultural heritage record archives.";
 
-    const siteImg = getSiteImageUrl(currentSelectedSite);
-
     const content = `
         <div class="frame-editorial-card">
-            <div class="editorial-left-panel" style="background-image: url('${siteImg}')">
+            <div class="editorial-left-panel" style="background-image: url('${currentSelectedSite.image || 'assets/MoloFront.jpg'}')">
                 <div class="editorial-left-overlay">
                     <div class="editorial-home-badge">🏛️</div>
                     <div class="editorial-left-footer">
@@ -616,17 +440,3 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (miniBtns[1]) miniBtns[1].onclick = () => openFrame('FF');
     }
 });
->>>>>>> b407ebe887fd9ec2f0978e9abb013f2dba336042
-=======
-//Plaza
-L.marker([10.696913, 122.544191],{icon: pinIcon}).addTo(map)
-.on("click",function(){
-    selectLandmark("molo-plaza");
-})
-.on("mouseover",function(){
-    hoverLandmark("molo-plaza");
-})
-.on("mouseout",function(){
-    leaveLandmark();
-});
->>>>>>> parent of 3c63b37 (Sidebar and map renovation and literally just everything)

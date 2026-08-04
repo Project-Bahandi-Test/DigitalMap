@@ -1,117 +1,113 @@
-/* =========================================================
-   PG - PLAY GAME / GAME LAUNCH MODAL HANDLER
-   Tracks selected mode (3D Model vs. Interactive Game)
-   and handles Firebase site data syncing.
-   ========================================================= */
+/**
+ * Project Bahandi - Play Game (PG) Controller
+ */
 
-(function () {
-    let selectedMode = '3d'; // Default mode ('3d' or 'game')
+let selectedGameMode = '3d-model'; // Default selected mode
 
-    /**
-     * Synchronizes current active landmark data into the Play Game modal
-     */
-    function syncPGData() {
-        const site = window.currentSelectedSite || {};
+/**
+ * Opens and initializes the Play Game Modal
+ */
+function openPGModal() {
+    const pgOverlay = document.getElementById('pg-overlay');
+    if (!pgOverlay) return;
 
-        const mainTitle = document.getElementById('pg-landmark-title');
-        const prog3dVal = document.getElementById('pg-prog-3d-val');
-        const fill3d = document.getElementById('pg-fill-3d');
-        const progGameVal = document.getElementById('pg-prog-game-val');
-        const fillGame = document.getElementById('pg-fill-game');
+    const site = window.currentSelectedSite;
 
-        const xpText = document.getElementById('pg-stat-xp');
-        const rankText = document.getElementById('pg-stat-rank');
+    // Update Header Details
+    const titleEl = document.getElementById('pg-landmark-title');
+    const subEl = document.getElementById('pg-sub-desc');
 
-        // Dynamic Title
-        if (mainTitle) {
-            mainTitle.innerHTML = site.name 
-                ? `Play the <em>${site.name}</em>` 
-                : `Play the <em>Heritage</em>`;
-        }
-
-        // Firebase Progress Data fallbacks
-        const prog3D = site.model_progress !== undefined ? site.model_progress : 100;
-        const progGame = site.game_progress !== undefined ? site.game_progress : 0;
-
-        if (prog3dVal) prog3dVal.innerText = `${prog3D}%`;
-        if (fill3d) fill3d.style.width = `${prog3D}%`;
-
-        if (progGameVal) progGameVal.innerText = `${progGame}%`;
-        if (fillGame) fillGame.style.width = `${progGame}%`;
-
-        if (xpText) xpText.innerText = site.xp_reward ? `${site.xp_reward} XP` : '240 XP';
-        if (rankText) rankText.innerText = site.user_rank || 'EXPLORER';
+    if (titleEl) {
+        const titleText = site?.site_name || site?.title || 'Molo Heritage Site';
+        titleEl.innerHTML = `${titleText.replace(/\b(\w+)$/, '<em>$1</em>')} <em>Interactive</em>`;
     }
 
-    /**
-     * Highlights and selects a mode card
-     */
-    window.selectPGMode = function (modeKey) {
-        selectedMode = modeKey;
-        const card3D = document.getElementById('pg-card-3d');
-        const cardGame = document.getElementById('pg-card-game');
+    if (subEl) {
+        subEl.innerText = `Explore ${site?.site_name || 'this landmark'} through interactive 3D modeling or test your heritage knowledge with its site-specific game challenge.`;
+    }
 
-        if (card3D && cardGame) {
-            card3D.classList.remove('selected');
-            cardGame.classList.remove('selected');
+    // Set dynamic metadata for Mode 1 (3D Model)
+    const m1Title = document.getElementById('pg-m1-title');
+    const m1Desc = document.getElementById('pg-m1-desc');
+    const m1Meta = document.getElementById('pg-m1-meta');
+    const m1Bar = document.getElementById('pg-m1-bar');
 
-            if (modeKey === '3d') {
-                card3D.classList.add('selected');
-            } else if (modeKey === 'game') {
-                cardGame.classList.add('selected');
-            }
+    if (m1Title) m1Title.innerHTML = `3D Model <em>Viewer</em>`;
+    if (m1Desc) m1Desc.innerText = `Inspect the real-time architectural 3D rendering of ${site?.site_name || 'the structure'}.`;
+    if (m1Meta) m1Meta.innerText = site?.has_3d ? 'MODEL READY · 100%' : 'HIGH-RES MODEL · 100%';
+    if (m1Bar) m1Bar.style.width = '100%';
+
+    // Set dynamic metadata for Mode 2 (Personal Site Game)
+    const m2Title = document.getElementById('pg-m2-title');
+    const m2Desc = document.getElementById('pg-m2-desc');
+    const m2Meta = document.getElementById('pg-m2-meta');
+    const m2Bar = document.getElementById('pg-m2-bar');
+
+    if (m2Title) m2Title.innerHTML = `${site?.site_name || 'Site'} <em>Challenge</em>`;
+    if (m2Desc) m2Desc.innerText = site?.game_desc || `Play the custom mini-game designed specifically around the history of ${site?.site_name || 'this landmark'}.`;
+    if (m2Meta) m2Meta.innerText = site?.game_status || 'PERSONAL GAME · READY';
+    if (m2Bar) m2Bar.style.width = '100%';
+
+    // Default to initial mode selection
+    selectPGMode('3d-model');
+
+    pgOverlay.classList.add('active');
+}
+
+/**
+ * Selects a Game Mode card ('3d-model' or 'personal-game')
+ */
+function selectPGMode(modeKey) {
+    selectedGameMode = modeKey;
+
+    const card1 = document.getElementById('pg-card-3d');
+    const card2 = document.getElementById('pg-card-game');
+    const launchBtn = document.getElementById('pg-launch-btn');
+
+    if (card1) card1.classList.toggle('selected', modeKey === '3d-model');
+    if (card2) card2.classList.toggle('selected', modeKey === 'personal-game');
+
+    if (launchBtn) {
+        launchBtn.innerText = modeKey === '3d-model' ? 'LAUNCH 3D MODEL →' : 'PLAY MINI-GAME →';
+    }
+}
+
+/**
+ * Triggers launch action for the selected mode
+ */
+function launchSelectedGame() {
+    const site = window.currentSelectedSite;
+    const siteName = site?.site_name || 'this site';
+
+    if (selectedGameMode === '3d-model') {
+        const modelUrl = site?.model_3d_url || '#';
+        if (modelUrl !== '#') {
+            window.open(modelUrl, '_blank');
+        } else {
+            alert(`Loading 3D Model Viewer for ${siteName}...`);
         }
-    };
-
-    /**
-     * Triggers the game launch based on selection
-     */
-    window.launchPGExperience = function () {
-        const site = window.currentSelectedSite || {};
-
-        if (selectedMode === '3d') {
-            const modelUrl = site.model_url || site.sketchfab_url;
-            if (modelUrl) {
-                window.open(modelUrl, '_blank');
-            } else {
-                alert(`Opening 3D Model View for ${site.name || 'Landmark'}...`);
-            }
-        } else if (selectedMode === 'game') {
-            const gameUrl = site.game_url;
-            if (gameUrl) {
-                window.open(gameUrl, '_blank');
-            } else {
-                alert(`Launching Interactive Heritage Mini-Game for ${site.name || 'Landmark'}...`);
-            }
+    } else {
+        const gameUrl = site?.game_url || '#';
+        if (gameUrl !== '#') {
+            window.open(gameUrl, '_blank');
+        } else {
+            alert(`Launching personal mini-game for ${siteName}...`);
         }
-    };
+    }
+}
 
-    /**
-     * Opens the Play Game Modal
-     */
-    window.openPGModal = function () {
-        const modal = document.getElementById('pg-overlay');
-        if (!modal) return;
+/**
+ * Closes the Play Game Modal
+ */
+function closePGModal() {
+    const pgOverlay = document.getElementById('pg-overlay');
+    if (pgOverlay) {
+        pgOverlay.classList.remove('active');
+    }
+}
 
-        syncPGData();
-        modal.classList.add('active');
-    };
-
-    /**
-     * Closes the Play Game Modal
-     */
-    window.closePGModal = function () {
-        const modal = document.getElementById('pg-overlay');
-        if (modal) {
-            modal.classList.remove('active');
-        }
-    };
-
-    // Global Key Listener for ESC key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            window.closePGModal();
-        }
-    });
-
-})();
+// Global Exports
+window.openPGModal = openPGModal;
+window.selectPGMode = selectPGMode;
+window.launchSelectedGame = launchSelectedGame;
+window.closePGModal = closePGModal;
